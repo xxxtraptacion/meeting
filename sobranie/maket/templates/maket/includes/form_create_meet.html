@@ -1,0 +1,113 @@
+<div class="container mt-3">
+<form>
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="meetingName">Название:</label>
+        </div>
+        <div class="form-group col-md-6">
+            <input type="text" class="form-control" id="meetingName"  >
+        </div>
+        <div class="form-group col-md-4 text-right">
+            <button type="submit" class="btn btn-primary">Использовать шаблон</button>
+        </div>
+    </div>
+
+
+  <div class="form-group">
+    <label for="meetingDescription">Описание:</label>
+
+      <div class="input-group">
+          <textarea class="form-control" aria-label="With textarea" id="meetingDescription"></textarea>
+      </div>
+  </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label >Тип собрания:</label>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="meetTypeButton" id="meetTypeButton1" value="option1" checked>
+                    <label class="form-check-label" for="meetTypeButton1">
+                        Общедоступное
+                    </label>
+                </div>
+        </div>
+        <div class="form-group col-md">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="meetTypeButton" id="meetTypeButton2" value="option1" >
+                    <label class="form-check-label" for="meetTypeButton2">
+                        По приглашению
+                    </label>
+                </div>
+        </div>
+    </div>
+
+     <div class="form-group">
+      <label for="partySelect">Список участников:</label>
+      <select id="partySelect" class="custom-select" disabled>
+          <option selected></option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+        <label >Таблица голосования:</label>
+    </div>
+
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Дата/Время</th>
+                <th scope="col">12:00</th>
+                <th scope="col">13:00</th>
+                <th scope="col">14:00</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1.11</th>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <th scope="row">2.11</th>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">3.11</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label >Добавить дату:</label>
+            <label >Добавить время:</label>
+        </div>
+        <div class="form-group col-md-2">
+            <label >11.11.1111</label>
+            <label >11:11</label>
+        </div>
+        <div class="form-group col-md text-right">
+            <button type="submit" class="btn btn-primary">Создать собрание</button>
+        </div>
+    </div>
+
+</form>
+</div>
