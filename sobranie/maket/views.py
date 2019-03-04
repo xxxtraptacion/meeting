@@ -21,5 +21,8 @@ def my_meetings_list(request):
 def template_directory_list(request):
     return render(request, 'maket/template_directory.html')
 
+def vote_meeting(request):
+    return render(request, 'maket/vote_meeting.html')
+
 
 

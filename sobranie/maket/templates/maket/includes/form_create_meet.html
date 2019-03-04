@@ -63,6 +63,7 @@
 
     <div class="form-group">
         <table class="table table-bordered">
+            <col width="50">
             <thead>
             <tr>
                 <th scope="col">Дата/Время</th>
@@ -84,19 +85,33 @@
 
 
     <div class="form-row">
-        <div class="form-group col-md-4">
-            <label >Добавить дату:</label>
-            <label >Добавить время:</label>
+        <div class="form-group col-md-6">
+            <div class="row">
+                <div class="col">
+                    <label >Добавить дату:</label>
+                </div>
+                <div class="col">
+                    <input id="datepicker" width="150" />
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label >Добавить время:</label>
+                </div>
+                <div class="col">
+                    <input id="timepicker" width="150" />
+                </div>
+
+            </div>
+
         </div>
-        <div class="form-group col-md-2">
-            <label >11.11.1111</label>
-            <label >11:11</label>
-        </div>
+
         <div class="form-group col-md text-right">
             <br>
             <button type="submit" class="btn btn-primary">Создать собрание</button>
         </div>
     </div>
-
 </form>
 </div>
