@@ -8,5 +8,7 @@ urlpatterns = [
     path('my_meetings/', my_meetings_list, name='my_meetings_list_url'),
     path('template_directory/', template_directory_list, name='template_directory_list_url'),
     path('vote_meeting/', vote_meeting, name='vote_meeting_url'),
+    path('edit_profile/', edit_profile, name='edit_profile_url'),
+    path('create_template/', create_template, name='create_template_url'),
 
 ]

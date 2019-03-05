@@ -3,3 +3,59 @@
 {% block name %}
     Название
 {% endblock %}
+
+{% block content %}
+
+    <div class="container mt-3">
+<form>
+
+    <div class="form-group">
+        <span> Описание: описание</span>
+    </div>
+
+    <div class="form-group">
+        <span> Тип собрания: тип собрания</span>
+    </div>
+
+
+    <div class="form-group">
+        <span>Таблица голосования:</span>
+    </div>
+
+
+    <div class="form-group">
+        <table class="table table-bordered">
+            <col width="50">
+            <thead>
+            <tr>
+                <th scope="col">Дата/Время</th>
+                <th scope="col">12:00</th>
+                <th scope="col">13:00</th>
+                <th scope="col">14:00</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1.11</th>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="form-group">
+        <span>Организатор:</span>
+        <br>
+        <span>Дата создания:</span>
+    </div>
+
+
+</form>
+</div>
+
+
+
+{% endblock %}
