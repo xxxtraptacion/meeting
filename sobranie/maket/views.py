@@ -34,4 +34,12 @@ def create_template(request):
     return render(request, 'maket/create_template.html')
 
 
+def register_user(request):
+    return render(request, 'maket/register.html')
+
+
+def login_user(request):
+    return render(request, 'maket/login.html')
+
+
 

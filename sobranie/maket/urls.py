@@ -10,5 +10,7 @@ urlpatterns = [
     path('vote_meeting/', vote_meeting, name='vote_meeting_url'),
     path('edit_profile/', edit_profile, name='edit_profile_url'),
     path('create_template/', create_template, name='create_template_url'),
+    path('register/', register_user, name='register_url'),
+    path('login/', login_user, name='login_url'),
 
 ]
