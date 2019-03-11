@@ -7,46 +7,46 @@
 
 
 {% block list_users %}
-     <div class="form-group">
-      <label for="partySelect">Список участников:</label>
-      <select id="partySelect" class="custom-select" disabled>
-          <option selected></option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-      </select>
-    </div>
+<div class="form-group">
+    <label for="partySelect">Список участников:</label>
+    <select id="partySelect" class="custom-select" disabled>
+        <option selected></option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
 {% endblock %}
 
 
 {% block data %}
-    <div class="form-row">
-        <div class="form-group col-6">
-            <div class="row">
-                <div class="col">
-                    <label >Добавить дату:</label>
-                </div>
-                <div class="col">
-                    <input id="datepicker" width="150" />
-                </div>
-
+<div class="form-row">
+    <div class="form-group col">
+        <div class="row">
+            <div class="col">
+                <label >Добавить дату:</label>
             </div>
-
-            <div class="row">
-                <div class="col">
-                    <label >Добавить время:</label>
-                </div>
-                <div class="col">
-                    <input id="timepicker" width="150" />
-                </div>
-
+            <div class="col">
+                <input id="datepicker" width="150" />
             </div>
 
         </div>
 
-        <div class="form-group col align-self-end text-right">
+        <div class="row">
+            <div class="col">
+                <label >Добавить время:</label>
+            </div>
+            <div class="col">
+                <input id="timepicker" width="150" />
+            </div>
 
-            <button type="submit" class="btn btn-primary">Создать собрание</button>
         </div>
+
     </div>
-    {% endblock %}
+
+    <div class="form-group col align-self-end text-right">
+
+        <button type="submit" class="btn btn-primary">Создать собрание</button>
+    </div>
+</div>
+{% endblock %}
