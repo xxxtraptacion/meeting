@@ -6,3 +6,6 @@ nav {
     background-color: a75ff;
 }
 
+a.navbar-brand:hover{
+color:white;
+}

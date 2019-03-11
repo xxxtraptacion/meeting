@@ -42,4 +42,9 @@ def login_user(request):
     return render(request, 'maket/login.html')
 
 
+def private_meetings_list(request):
+    return render(request, 'maket/private_meetings.html')
+
+
+
 

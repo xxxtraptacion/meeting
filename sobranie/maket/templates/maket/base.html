@@ -31,8 +31,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="btn" href="{% url 'general_meetings_list_url'%}">Общие собрания<span class="sr-only">(current)</span></a>
+                <li class="nav-item dropdown ">
+                    <a class="btn dropdown-toggle" href="{% url 'meetings_list_url'%}" id="navbarDropdownMenuMeet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Все собрания
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #80b3ff;">
+                        <a class="dropdown-item" href="{% url 'general_meetings_list_url' %}">Общие собрания</a>
+                        <a class="dropdown-item" href="{% url 'private_meetings_list_url' %}">Приватные собрания</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <div class="btn-group">
@@ -49,7 +55,7 @@
                     <a class="btn" href="{% url 'template_directory_list_url'%}">Каталог шаблонов</a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="btn dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn dropdown-toggle" href="#" id="navbarDropdownMenuProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Профиль
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #80b3ff">
