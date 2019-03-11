@@ -1,0 +1,11 @@
+.col-md-4{
+    margin-top:10%;
+    background-color:#80b3ff;
+    border-radius: 20px;
+    width:300px;
+    border: 1px solid black;
+}
+
+a{
+color: black;
+}
