@@ -1,0 +1,44 @@
+{% extends 'maket/includes/base_form.html' %}
+
+{% block link %}
+
+<a href="{% url 'template_directory_list_url'%}" class="btn btn-primary " >Отмена</a>
+
+{% endblock %}
+
+{% block data %}
+<div class="form-row">
+    <div class="form-group col-5">
+        <div class="row">
+            <div class="col">
+                <span>Начальные значения:</span>
+            </div>
+        </div>
+        <hr class="mt-2 mb-2">
+        <div class="row">
+            <div class="col-4">
+                <label >Дата:</label>
+            </div>
+            <div class="col">
+                <input id="datepicker" width="150" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <label >Время:</label>
+            </div>
+            <div class="col">
+                <input id="timepicker" width="150" />
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="form-group col align-self-end text-right">
+
+        <button type="submit" class="btn btn-primary">Создать собрание</button>
+    </div>
+</div>
+{% endblock %}

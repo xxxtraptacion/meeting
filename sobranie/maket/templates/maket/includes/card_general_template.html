@@ -1,0 +1,9 @@
+{% extends 'maket/includes/base_card.html' %}
+{% block card_content %}
+<div class=" col">
+    Организатор:
+</div>
+<div class="col text-right">
+    <a href="{% url 'create_meeting_from_template_url'%}" class="btn btn-primary mr-0" style="width:160px;">Создать собрание</a>
+</div>
+{% endblock %}
