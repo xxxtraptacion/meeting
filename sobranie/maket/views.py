@@ -46,5 +46,9 @@ def private_meetings_list(request):
     return render(request, 'maket/private_meetings.html')
 
 
+def create_meeting_from_template(request):
+    return render(request, 'maket/create_meet_from_template.html')
+
+
 
 

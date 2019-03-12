@@ -1,11 +1,18 @@
 {% extends 'maket/base.html' %}
 
 {% block name %}
-Все шаблоны
+Каталог шаблонов
+
+
+
 {% endblock %}
 
 {% block content %}
 
-<a href="{% url 'create_template_url'%}" class="btn btn-primary " >Создать шаблон</a>
 
+{% include 'maket/includes/card_general_template.html' %}
+
+<div class="create_templ" >
+<a href="{% url 'create_template_url'%}" class="btn btn-primary ">Создать шаблон</a>
+    </div>
 {% endblock %}

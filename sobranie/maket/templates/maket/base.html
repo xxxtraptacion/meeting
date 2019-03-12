@@ -32,9 +32,11 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown ">
-                    <a class="btn dropdown-toggle" href="{% url 'meetings_list_url'%}" id="navbarDropdownMenuMeet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn " href="{% url 'meetings_list_url'%}" >
                         Все собрания
                     </a>
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left:-20px">
+                    </button>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #80b3ff;">
                         <a class="dropdown-item" href="{% url 'general_meetings_list_url' %}">Общие собрания</a>
                         <a class="dropdown-item" href="{% url 'private_meetings_list_url' %}">Приватные собрания</a>
@@ -70,7 +72,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-8 offset-md-2" >
             <h3 align="center">
                 {% block name %}
 

@@ -8,48 +8,59 @@
 
 {% block data %}
 <div class="form-row">
-    <div class="form-group col-8">
-        <div class="row">
+    <div class="form-group col-7">
+        <div class="row ">
             <div class="col">
                 <span>Начальные значения:</span>
             </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-4">
-                <label >Дата:</label>
+        <div class="mt-2" style="border-right:2px solid; border-top:2px solid">
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label >Количество дней:</label>
+                </div>
+                <div class="col">
+                    3
+                </div>
             </div>
-            <div class="col">
-                <input id="datepicker" width="150" />
+
+            <div class="row">
+                <div class="col-6">
+                    <label >Столбцов:</label>
+                </div>
+                <div class="col">
+                    4
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label >Интервал между днями:</label>
+                </div>
+                <div class="col">
+                    2
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label >Длительность собрания:</label>
+                </div>
+                <div class="col">
+                    1:20
+                </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-4">
-                <label >Время:</label>
-            </div>
-            <div class="col">
-                <input id="timepicker" width="150" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-4">
-                <label for="typeTemplSelect">Тип шаблона:</label>
-            </div>
-            <div class="col">
-                <select id="typeTemplSelect" class="custom-select" style="width: 150px" >
-                    <option value="1" selected>Общий</option>
-                    <option value="2">Приватный</option>
-                </select>
-            </div>
-        </div>
 
     </div>
 
     <div class="form-group col align-self-end text-right">
-
-        <button type="submit" class="btn btn-primary">Создать шаблон</button>
+        <div class="mb-5">
+            <select id="typeTemplSelect" class="custom-select" style="width: 200px" >
+                <option value="1" selected>Общий шаблон</option>
+                <option value="2">Приватный шаблон</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 200px">Создать шаблон</button>
     </div>
 </div>
 {% endblock %}

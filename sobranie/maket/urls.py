@@ -6,6 +6,7 @@ urlpatterns = [
     path('general_meetings/', general_meetings_list, name='general_meetings_list_url'),
     path('private_meetings/', private_meetings_list, name='private_meetings_list_url'),
     path('create_meeting/', create_meeting, name='create_meeting_url'),
+    path('create_meeting_from_template/', create_meeting_from_template, name='create_meeting_from_template_url'),
     path('my_meetings/', my_meetings_list, name='my_meetings_list_url'),
     path('template_directory/', template_directory_list, name='template_directory_list_url'),
     path('vote_meeting/', vote_meeting, name='vote_meeting_url'),

@@ -9,3 +9,11 @@ nav {
 a.navbar-brand:hover{
 color:white;
 }
+
+.card.mb-4{
+border-radius: 20px;
+}
+
+.create_templ{
+
+}
