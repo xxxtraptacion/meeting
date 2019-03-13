@@ -53,8 +53,16 @@
                 <li class="nav-item">
                     <a class="btn" href="{% url 'my_meetings_list_url'%}">Мои собрания</a>
                 </li>
-                <li class="nav-item">
-                    <a class="btn" href="{% url 'template_directory_list_url'%}">Каталог шаблонов</a>
+                <li class="nav-item dropdown">
+                    <a class="btn dropdown-toggle" href="#" id="navbarDropdownTemplate" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Шаблоны
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #80b3ff">
+                        <a class="dropdown-item" href="{% url 'template_directory_list_url'%}">Все шаблоны</a>
+                        <a class="dropdown-item" href="{% url 'my_template_directory_list_url'%}">Мои шаблоны</a>
+                        <a class="dropdown-item" href="{% url 'create_template_url'%}">Создать шаблон</a>
+                    </div>
+
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="btn dropdown-toggle" href="#" id="navbarDropdownMenuProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -50,5 +50,9 @@ def create_meeting_from_template(request):
     return render(request, 'maket/create_meet_from_template.html')
 
 
+def my_template_directory(request):
+    return render(request, 'maket/my_template_directory.html')
+
+
 
 
