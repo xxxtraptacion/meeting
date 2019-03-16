@@ -44,9 +44,17 @@
                 <div class="col-6">
                     <label >Длительность собрания:</label>
                 </div>
-                <div class="col">
-                    1:20
-                </div>
+                <div class="col-3">
+                    <input id="timepickerCrT">
+            </div>
+
+            <script>
+        $(function () {
+            $('#timepickerCrT').timepicker({
+                language: 'ru',
+            });
+        });
+    </script>
             </div>
         </div>
 
