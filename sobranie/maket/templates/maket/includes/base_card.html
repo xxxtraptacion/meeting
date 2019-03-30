@@ -1,17 +1,19 @@
-<div class="card mb-4">
-    <div class="card-body">
-        <div class="row">
+<div class="col-md-8 offset-md-2" >
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
 
-            <h4 class="card-title col-sm">Название</h4>
-            <h5 class="card-title col sm text-right">Тип собрания </h5>
-        </div>
-        <p class="card-text "> Описание</p>
-        <p class="card-text "> Дата создания:</p>
+                <h4 class="card-title col">Название</h4>
+                <h5 class="card-title col  text-right">Тип собрания </h5>
+            </div>
+            <p class="card-text "> Описание</p>
+            <p class="card-text "> Дата создания:</p>
 
-        <div class="row">
-            {% block card_content %}
+            <div class="row">
+                {% block card_content %}
 
-            {% endblock %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 </div>

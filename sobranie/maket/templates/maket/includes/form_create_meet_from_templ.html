@@ -16,7 +16,7 @@
         </div>
         <hr class="mt-2 mb-2">
         <div class="row">
-            <div class="col-4">
+            <div class="col-5">
                 <label >Дата:</label>
             </div>
             <div class="col">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-5">
                 <label >Время:</label>
             </div>
             <div class="col">
@@ -44,6 +44,23 @@
             <script>
         $(function () {
             $('#timepickerCrMeetFrT').datepicker({
+                language: 'ru',
+            });
+        });
+    </script>
+        </div>
+
+        <div class="row">
+            <div class="col-5">
+                <label >Длительность:</label>
+            </div>
+            <div class="col">
+                <input id="timepickerDurationFrTempl">
+            </div>
+
+            <script>
+        $(function () {
+            $('#timepickerDurationFrTempl').datepicker({
                 language: 'ru',
             });
         });

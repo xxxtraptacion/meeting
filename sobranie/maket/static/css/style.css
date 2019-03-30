@@ -17,3 +17,7 @@ border-radius: 20px;
 table {
     text-align: center;
 }
+
+input.number-input{
+    height:30px;
+}

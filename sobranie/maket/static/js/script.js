@@ -1,15 +1,18 @@
-
+var addDur=false;
 
 function typeCheck(){
     if(document.getElementById('meetTypeCheck2').checked){
         document.getElementById('partySelect').disabled=false;
+        document.getElementById('partyAdd').disabled=false;
     }else{
         document.getElementById('partySelect').disabled=true;
+        document.getElementById('partyAdd').disabled=true;
     }
 }
 
 $(function () {
             $('#datepickerCrMeet').datepicker({
+            format:'d.mm'
             });
 });
 
@@ -18,8 +21,10 @@ $(function () {
             });
 });
 
+
 $(function () {
-            $('#timepickerCrMeet1').timepicker({
+            $('#timepickerDuration').timepicker({
+
             });
 });
 
@@ -30,7 +35,7 @@ document.querySelector('button.add-row').onclick = function () {
     if(i==0){
         var addTD =rows[i].insertCell(-1);
         addTD.innerHTML = $('#timepickerCrMeet').val();
-        addTD.innerHTML+="<button type='button' class='btn btn-danger btn-sm remove-col'>x</button>";
+        addTD.innerHTML+=" (<span class='duration'></span>) <button type='button' class='btn btn-danger btn-sm remove-col'>x</button>";
 
     }
     else{
@@ -50,7 +55,7 @@ document.querySelector('button.add-col').onclick = function () {
     if(i==0){
         var addTD =addTR.insertCell(-1);
         addTD.innerHTML = $('#datepickerCrMeet').val();
-        addTD.innerHTML+="<button type='button' class='btn btn-danger btn-sm remove-row'>x</button>";
+        addTD.innerHTML+=" <button type='button' class='btn btn-danger btn-sm remove-row'>x</button>";
     }
     else{
         var addTD =addTR.insertCell(-1);
@@ -58,6 +63,13 @@ document.querySelector('button.add-col').onclick = function () {
     }
   }
 }
+
+
+$("button.add-duration").on("click",  function(){
+    $(".duration").empty();
+    $(".duration").append($('#timepickerDuration').val());
+});
+
 
 $("table.table").on("click", ".remove-row", function(){
     var tr= this.parentNode.parentNode;
