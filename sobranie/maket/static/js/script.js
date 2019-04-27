@@ -35,7 +35,7 @@ document.querySelector('button.add-row').onclick = function () {
     if(i==0){
         var addTD =rows[i].insertCell(-1);
         addTD.innerHTML = $('#timepickerCrMeet').val();
-        addTD.innerHTML+=" (<span class='duration'></span>) <button type='button' class='btn btn-danger btn-sm remove-col'>x</button>";
+        addTD.innerHTML+=" (<span class='duration'></span>) <button type='button' class='close remove-col' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
 
     }
     else{
@@ -55,7 +55,7 @@ document.querySelector('button.add-col').onclick = function () {
     if(i==0){
         var addTD =addTR.insertCell(-1);
         addTD.innerHTML = $('#datepickerCrMeet').val();
-        addTD.innerHTML+=" <button type='button' class='btn btn-danger btn-sm remove-row'>x</button>";
+        addTD.innerHTML+=" <button type='button' class='close remove-row' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
     }
     else{
         var addTD =addTR.insertCell(-1);

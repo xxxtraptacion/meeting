@@ -2,7 +2,7 @@
 
 {% block link %}
 
-<a href="{% url 'template_directory_list_url'%}" class="btn btn-primary " >Отмена</a>
+<a href="{% url 'template_directory_list_url'%}" class="btn btn-primary " >Назад</a>
 
 {% endblock %}
 
@@ -16,10 +16,10 @@
         </div>
         <hr class="mt-2 mb-2">
         <div class="row">
-            <div class="col-5">
+            <div class="col-4">
                 <label >Дата:</label>
             </div>
-            <div class="col">
+            <div class="col-3">
                 <input id="datepickerCrMeetFrT">
             </div>
 
@@ -34,16 +34,16 @@
         </div>
 
         <div class="row">
-            <div class="col-5">
+            <div class="col-4">
                 <label >Время:</label>
             </div>
-            <div class="col">
+            <div class="col-3">
                 <input id="timepickerCrMeetFrT">
             </div>
 
             <script>
         $(function () {
-            $('#timepickerCrMeetFrT').datepicker({
+            $('#timepickerCrMeetFrT').timepicker({
                 language: 'ru',
             });
         });
@@ -51,16 +51,16 @@
         </div>
 
         <div class="row">
-            <div class="col-5">
+            <div class="col-4">
                 <label >Длительность:</label>
             </div>
-            <div class="col">
+            <div class="col-3">
                 <input id="timepickerDurationFrTempl">
             </div>
 
             <script>
         $(function () {
-            $('#timepickerDurationFrTempl').datepicker({
+            $('#timepickerDurationFrTempl').timepicker({
                 language: 'ru',
             });
         });
