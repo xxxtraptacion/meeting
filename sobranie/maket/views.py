@@ -1,9 +1,13 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import View
+from .models import *
 
 
 def meetings_list(request):
-    return render(request, 'maket/meetings.html')
+    col_list = Collect.objects.all()
+    context={'col_list': col_list}
+    return render(request, 'maket/meetings.html', context)
 
 
 def general_meetings_list(request):
@@ -35,7 +39,7 @@ def create_template(request):
 
 
 def register_user(request):
-    return render(request, 'maket/register.html')
+    return render(request, 'maket/register.html',)
 
 
 def login_user(request):
