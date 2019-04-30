@@ -3,28 +3,18 @@
 <h3 align="center">
     Регистрация
 </h3>
-<form method="post">
-    <div class="form-group row mt-3">
-        <div class="col-10 offset-1">
-            <input type="text" class="form-control" id="inputLogin" placeholder="Login">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-10 offset-1">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Пароль">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-10 offset-1">
-            <input type="password" class="form-control" id="inputPassword2" placeholder="Повторите пароль">
-        </div>
+<form method="post" >
+    {% csrf_token %}
+    <div class="form-group row mt-3 ml-1">
+            {{form.as_p}}
     </div>
     <div class="form-group  text-center">
-        <a class="btn btn-primary" href="{% url 'meetings_list_url'%}" style="color:white; width:180px">Зарегистрироваться</a>
+        <input class="btn btn-primary" type="submit" value="Зарегистрироваться" style="color:white; width:180px">
     </div>
     <div class="form-group text-center">
         <a  href="{% url 'login_url'%}">Войти</a>
     </div>
+
 
 
 </form>

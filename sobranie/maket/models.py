@@ -1,8 +1,6 @@
-
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 import datetime
-
 
 
 class Userpr(models.Model):
@@ -10,17 +8,21 @@ class Userpr(models.Model):
     password = models.CharField('password',db_index=True,max_length=120)
     email = models.EmailField('Email',unique=True,max_length=150)
 
+    USERNAME_FIELD = 'username'
+
+
     def __str__(self):
         return self.username
+
 
 class Moment (models.Model):
     nazv = models.CharField('nazv',max_length=100,db_index=True)
     duration = models.TimeField(auto_now_add=False)
     date = models.DateField(auto_now_add=False)
 
-
     def __str__(self):
         return self.nazv
+
 
 class Template(models.Model): #Шаблон собрания
     namet = models.CharField('namet',max_length=100,unique=True,db_index=True)
@@ -53,10 +55,7 @@ class Collect(models.Model):  # Собрание
         return self.name
 
 
-
-
-
 class RequiredPeople(models.Model):
     namesobr = models.ManyToManyField(Collect)
     listeners = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='listeners')
-leading = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='leading')
+    leading = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='leading')

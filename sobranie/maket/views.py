@@ -1,13 +1,23 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
+from .forms import *
 from django.views.generic import View
 from .models import *
+from django.contrib.auth import login,logout
 
 
 def meetings_list(request):
     col_list = Collect.objects.all()
-    context={'col_list': col_list}
+    context = {'col_list': col_list}
     return render(request, 'maket/meetings.html', context)
+
+
+def reg_in_bd_user(request):
+    if request.method == "POST":
+        if request.POST['inputPassword'] == request.POST['inputPassword2']:
+            user = Userpr(username=request.POST['inputLogin'], password=request.POST['inputPassword'])
+            user.save()
+            return HttpResponseRedirect('/maket/meetings/')
 
 
 def general_meetings_list(request):
@@ -39,7 +49,17 @@ def create_template(request):
 
 
 def register_user(request):
-    return render(request, 'maket/register.html',)
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user=form.save()
+            login(request,user)
+            return redirect("maket/meetings.html")
+        else:
+            for msg in form.error_messages:
+                print(form.error_messages[msg])
+    form = RegisterForm()
+    return render(request, 'maket/register.html', context={"form": form})
 
 
 def login_user(request):

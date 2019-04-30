@@ -15,5 +15,6 @@ urlpatterns = [
     path('my_templ_dir/', my_template_directory, name='my_template_directory_list_url'),
     path('register/', register_user, name='register_url'),
     path('login/', login_user, name='login_url'),
+    path('register/regbd/', reg_in_bd_user, name='reg_in_bd_url'),
 
 ]
