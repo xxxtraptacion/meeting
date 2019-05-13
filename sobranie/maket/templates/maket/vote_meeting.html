@@ -1,5 +1,5 @@
 {% extends 'maket/base.html' %}
-
+{% load staticfiles %}
 {% block name %}
 Название
 {% endblock %}
@@ -25,11 +25,11 @@
 
         <div class="form-group">
             <form method="post">
-                <table class="table table-bordered">
+                <table class="table table-bordered " id="vote-table">
                     <col width="50">
                     <thead>
                     <tr>
-                        <th scope="col">Дата/Время</th>
+                        <th  scope="col">Дата/Время</th>
                         <th scope="col">12:00</th>
                         <th scope="col">13:00</th>
                         <th scope="col">14:00</th>
@@ -38,21 +38,22 @@
                     <tbody>
                     <tr>
                         <th scope="row">1.11</th>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>2</td>
+                        <td id="11" >123</td>
+                        <td id="12" >0</td>
+                        <td id="13" >2</td>
                     </tr>
                     </tbody>
                 </table>
+            </form>
         </div>
-    </form>
 
 
-    <div class="form-group">
-        <span>Организатор:</span>
-        <br>
-        <span>Дата создания:</span>
-    </div>
+
+        <div class="form-group">
+            <span>Организатор:</span>
+            <br>
+            <span>Дата создания:</span>
+        </div>
 
 
     </form>
@@ -60,4 +61,9 @@
 
 
 
+{% endblock %}
+
+{% block js %}
+<link rel="stylesheet" href="{% static 'css/vote.css' %}">
+<script src="{% static 'js/vote.js'  %}"></script>
 {% endblock %}
