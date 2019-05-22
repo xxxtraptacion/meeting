@@ -1,15 +1,5 @@
 var addDur=false;
 
-function typeCheck(){
-    if(document.getElementById('meetTypeCheck2').checked){
-        document.getElementById('partySelect').disabled=false;
-        document.getElementById('partyAdd').disabled=false;
-    }else{
-        document.getElementById('partySelect').disabled=true;
-        document.getElementById('partyAdd').disabled=true;
-    }
-}
-
 $(function () {
             $('#datepickerCrMeet').datepicker({
             format:'d.mm'

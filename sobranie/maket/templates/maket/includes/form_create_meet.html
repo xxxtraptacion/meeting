@@ -7,26 +7,16 @@
 
 
 {% block list_users %}
-<div class="form-row">
-    <div class="form-group col">
-        <label for="partySelect">Список участников:</label>
-        <select id="partySelect" class="custom-select" disabled style="width:300px">
-            <option selected></option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+        <label >Список участников:</label>
+        <select  class="selectpicker" multiple data-live-search="true">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
         </select>
-    </div>
-    <div class="form-group col">
-        <label for="partyAdd">Добавить участников:</label>
-        <select id="partyAdd" class="custom-select" disabled style="width:300px">
-            <option selected></option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
         </select>
-    </div>
-</div>
 {% endblock %}
 
 
