@@ -1,4 +1,4 @@
-var addDur=false;
+
 
 $(function () {
             $('#datepickerCrMeet').datepicker({
