@@ -5,27 +5,6 @@
 {% endblock %}
 {% block content %}
 {% for col in col_list %}
-<div class="col-md-8 offset-md-2" >
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="row">
-
-                <h4 class="card-title col">{{ col.name }} </h4>
-                <h5 class="card-title col  text-right">Тип собрания </h5>
-            </div>
-            <p class="card-text "> {{ col.theme }}</p>
-            <p class="card-text "> Дата создания: {{ col.data }}</p>
-
-            <div class="row">
-                <div class=" col">
-                    Организатор: {{ col.org }}
-                </div>
-                <div class="col text-right">
-                    <a href="{% url 'vote_meeting_url'%}" class="btn btn-primary mr-0" style="width:140px;">Голосовать</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    {% include 'maket/includes/base_card.html' %}
 {% endfor %}
 {% endblock %}

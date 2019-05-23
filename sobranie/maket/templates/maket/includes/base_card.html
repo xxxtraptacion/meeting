@@ -3,16 +3,19 @@
         <div class="card-body">
             <div class="row">
 
-                <h4 class="card-title col">Название</h4>
-                <h5 class="card-title col  text-right">Тип собрания </h5>
+                <h4 class="card-title col">{{ col.name }} </h4>
+                <h5 class="card-title col  text-right"><span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" title="Собрание доступно всем пользователям">Общедоступное</span></h5>
             </div>
-            <p class="card-text "> Описание</p>
-            <p class="card-text "> Дата создания:</p>
+            <p class="card-text "> {{ col.theme }}</p>
+            <p class="card-text "> Дата создания: {{ col.data }}</p>
 
             <div class="row">
-                {% block card_content %}
-
-                {% endblock %}
+                <div class=" col">
+                    Организатор: {{ col.org }}
+                </div>
+                <div class="col text-right">
+                    <a href="{% url 'vote_meeting_url'%}" class="btn  btn-dark mr-0" style="width:140px;">Голосовать</a>
+                </div>
             </div>
         </div>
     </div>

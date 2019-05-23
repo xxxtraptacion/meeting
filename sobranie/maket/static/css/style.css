@@ -22,6 +22,18 @@ input.number-input{
     height:30px;
 }
 
-button.remove-col{
-    ;
+nav.navbar {
+    border-bottom: 1px dotted;
+    background-color: #80b3ff;
 }
+
+span.badge {
+    background-color:#FCE8E8;
+    border: 1px solid;
+    border-color: black;
+    color: black;
+    cursor: help;
+}
+
+
+
