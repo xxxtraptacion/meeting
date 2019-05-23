@@ -1,4 +1,5 @@
 {% extends 'maket/includes/base_form.html' %}
+
 {% block link %}
 
 <a href="{% url 'template_directory_list_url'%}" class="btn btn-primary" >Использовать шаблон</a>
@@ -7,7 +8,6 @@
 
 
 {% block list_users %}
-        <label >Список участников:</label>
         <select  class="selectpicker" multiple data-live-search="true">
             <option>1</option>
             <option>2</option>
@@ -15,7 +15,6 @@
             <option>4</option>
             <option>5</option>
             <option>6</option>
-        </select>
         </select>
 {% endblock %}
 
@@ -81,3 +80,4 @@
     </div>
 </div>
 {% endblock %}
+

@@ -1,3 +1,5 @@
+
+
 <div class="container mt-3 mb-3" >
     <form class="pt-3">
 
@@ -16,22 +18,23 @@
         </div>
 
 
-        <div class="form-group">
-            <label for="meetingDescription">Описание:</label>
-
-            <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea" id="meetingDescription"></textarea>
+        <div class="form-row">
+            <div class="form-group col-md-1">
+                <label for="meetingName">Описание</label>
+            </div>
+            <div class="input-group col-md-6">
+                <textarea class="form-control"  id="meetingDescription" cols="100"></textarea>
             </div>
         </div>
 
 
-        <div class="form-row">
+        <div class="form-row mt-5 mb-3">
             <div class="form-group col-md-2">
                 <label >Тип собрания:</label>
             </div>
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="meetTypeButton" id="meetTypeCheck1" value="option1" onclick="typeCheck()"  checked>
+                    <input class="form-check-input" type="radio" name="meetTypeButton" id="meetTypeCheck1" value="option1"  checked>
                     <label class="form-check-label" for="meetTypeCheck1">
                         Общедоступное
                     </label>
@@ -39,24 +42,19 @@
             </div>
             <div class="form-group col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="meetTypeButton" id="meetTypeCheck2" value="option1" onclick="typeCheck()" >
+                    <input class="form-check-input" type="radio" name="meetTypeButton" id="meetTypeCheck2" value="option1" >
                     <label class="form-check-label" for="meetTypeCheck2">
                         По приглашению
                     </label>
                 </div>
             </div>
-            <div class="form-group col-md-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="meetTypeButton" id="meetTypeCheck3" value="option1" >
-                    <label class="form-check-label" for="meetTypeCheck3">
-                        Обязательное
-                    </label>
-                </div>
+            <div class="form-group col-md">
+                    {% block list_users %}
+
+                    {% endblock %}
             </div>
         </div>
-        {% block list_users %}
 
-        {% endblock %}
 
 
         <div class="form-group">
