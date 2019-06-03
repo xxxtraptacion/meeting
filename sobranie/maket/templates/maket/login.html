@@ -1,27 +1,18 @@
 {% extends 'maket/base.html' %}
+{% load i18n %}
+
 {% block content %}
-<h3 align="center">
-    Вход
-</h3>
-<form >
-    <div class="form-group row mt-3">
-        <div class="col-10 offset-1">
-            <input type="text" class="form-control" id="inputLogin" placeholder="Login">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-10 offset-1">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Пароль">
-        </div>
-    </div>
+<h1>{% trans "Sign Up" %}</h1>
 
-    <div class="form-group  text-center">
-        <a class="btn btn-dark" href="{% url 'meetings_list_url'%}" >Войти</a>
-    </div>
-    <div class="form-group text-center">
-        <a href="{% url 'register_url'%}">Зарегистрироваться</a>
-    </div>
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
+
 {% endblock %}
