@@ -1,6 +1,13 @@
 {% extends 'maket/base.html' %}
 {% load staticfiles %}
 
+{% block menu %}
+
+{% include 'maket/includes/nav.html' %}
+
+
+{% endblock %}
+
 {% block content %}
 
 {% include 'maket/includes/form_create_meet.html' %}

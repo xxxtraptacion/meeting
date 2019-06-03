@@ -1,5 +1,17 @@
 div.collapse a{
     color: white;
+
+}
+
+div.container{
+
+    font-family: Chasm;
+}
+a.navbar-brand{
+    color: white;
+}
+nav{
+    background-color:#013a5d;
 }
 .card.mb-4{
 border-radius: 20px;
@@ -13,14 +25,15 @@ input.number-input{
     height:30px;
 }
 
-
-
-nav.navbar {
-    background-color: #999999;
+a.btn-dark{
+background-color:#013a5d;
+width:140px;
 }
 
+
+
 span.badge {
-    background-color:#f0f0f0;
+    background-color:#bde5fe;
     border: 1px solid;
     border-color: black;
     color: black;

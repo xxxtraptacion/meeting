@@ -6,15 +6,10 @@ urlpatterns = [
     path('general_meetings/', general_meetings_list, name='general_meetings_list_url'),
     path('private_meetings/', private_meetings_list, name='private_meetings_list_url'),
     path('create_meeting/', create_meeting, name='create_meeting_url'),
-    path('create_meeting_from_template/', create_meeting_from_template, name='create_meeting_from_template_url'),
     path('my_meetings/', my_meetings_list, name='my_meetings_list_url'),
-    path('template_directory/', template_directory_list, name='template_directory_list_url'),
     path('vote_meeting/', vote_meeting, name='vote_meeting_url'),
-    path('edit_profile/', edit_profile, name='edit_profile_url'),
-    path('create_template/', create_template, name='create_template_url'),
-    path('my_templ_dir/', my_template_directory, name='my_template_directory_list_url'),
     path('register/', register_user, name='register_url'),
     path('login/', login_user, name='login_url'),
-    path('register/regbd/', reg_in_bd_user, name='reg_in_bd_url'),
+    path('logout/', logout_user, name='logout_url'),
 
 ]

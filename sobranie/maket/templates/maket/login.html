@@ -1,4 +1,4 @@
-{% extends 'maket/base_auth.html' %}
+{% extends 'maket/base.html' %}
 {% block content %}
 <h3 align="center">
     Вход
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-group  text-center">
-        <a class="btn btn-primary" href="{% url 'meetings_list_url'%}" style="color:white; width:180px">Войти</a>
+        <a class="btn btn-dark" href="{% url 'meetings_list_url'%}" >Войти</a>
     </div>
     <div class="form-group text-center">
         <a href="{% url 'register_url'%}">Зарегистрироваться</a>

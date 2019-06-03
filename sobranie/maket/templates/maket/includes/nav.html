@@ -1,0 +1,23 @@
+<div class="collapse navbar-collapse "  id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="btn" href="{% url 'general_meetings_list_url' %}">Общие собрания</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn" href="{% url 'private_meetings_list_url' %}">Приватные собрания</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-success" href="{% url 'create_meeting_url'%}"> Создать собрание</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn" href="{% url 'my_meetings_list_url'%}">Мои собрания</a>
+        </li>
+
+    </ul>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+            <a class="btn " href="{% url 'login_url' %}">Выход</a>
+        </li>
+    </ul>
+
+</div>

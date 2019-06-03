@@ -1,4 +1,6 @@
-
+$('#checkPrivate').change(function() {
+    $('#listUsers').toggle();
+});
 
 $(function () {
             $('#datepickerCrMeet').datepicker({
@@ -30,7 +32,7 @@ document.querySelector('button.add-row').onclick = function () {
     }
     else{
         var addTD =rows[i].insertCell(-1);
-        addTD.innerHTML = "0";
+        addTD.innerHTML = "";
     }
   }
 }
@@ -49,7 +51,7 @@ document.querySelector('button.add-col').onclick = function () {
     }
     else{
         var addTD =addTR.insertCell(-1);
-        addTD.innerHTML = "0";
+        addTD.innerHTML = "";
     }
   }
 }

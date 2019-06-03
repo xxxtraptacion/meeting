@@ -1,4 +1,11 @@
 {% extends 'maket/base.html' %}
+{% load staticfiles %}
+{% block menu %}
+
+{% include 'maket/includes/nav.html' %}
+
+
+{% endblock %}
 
 {% block name %}
 Все собрания
@@ -7,4 +14,8 @@
 {% for col in col_list %}
     {% include 'maket/includes/base_card.html' %}
 {% endfor %}
+{% endblock %}
+{% block js %}
+
+<link rel="stylesheet" href="{% static 'css/all_meets.css' %}">
 {% endblock %}
