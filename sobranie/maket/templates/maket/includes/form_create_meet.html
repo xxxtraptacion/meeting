@@ -21,12 +21,12 @@
 {% block data %}
 <div class="form-row">
 
-    <div class="form-group col">
+    <div class="form-group col-4">
         <div class="row">
             <div class="col-4">
                 <label >Добавить дату:</label>
             </div>
-            <div class="col-3">
+            <div class="col-5">
                 <input id="datepickerCrMeet" >
             </div>
             <div class="col-1">
@@ -34,16 +34,14 @@
 
             </div>
 
-
-
-
         </div>
-
+    </div>
+<div class="form-group col-4">
         <div class="row">
             <div class="col-4">
                 <label >Добавить время:</label>
             </div>
-            <div class="col-3">
+            <div class="col-5">
                 <input id="timepickerCrMeet">
 
             </div>
@@ -51,15 +49,15 @@
                 <button type="button" class="btn btn-success btn-sm add-row">+</button>
 
             </div>
-
         </div>
-
+        </div>
+<div class="form-group col">
         <div class="row">
             <div class="col-4">
                 <label >Длительность:</label>
             </div>
 
-            <div class="col-3">
+            <div class="col-5">
                 <input id="timepickerDuration">
 
             </div>
@@ -67,16 +65,16 @@
                 <button type="button" class="btn btn-success btn-sm add-duration">+</button>
 
             </div>
-
+        </div>
 
         </div>
 
     </div>
-
+</div>
     <div class="form-group col align-self-end text-right">
 
         <button type="submit" class="btn btn-dark vote" >Создать собрание</button>
     </div>
-</div>
+
 {% endblock %}
 

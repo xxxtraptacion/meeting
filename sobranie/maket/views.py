@@ -22,8 +22,8 @@ def reg_in_bd_user(request):
             return HttpResponseRedirect('/maket/meetings/')
 
 
-def general_meetings_list(request):
-    return render(request, 'maket/general_meetings.html')
+def public_meetings_list(request):
+    return render(request, 'maket/public_meetings.html')
 
 
 def create_meeting(request):

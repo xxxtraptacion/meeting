@@ -59,3 +59,4 @@ class RequiredPeople(models.Model):
     namesobr = models.ManyToManyField(Collect)
     listeners = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='listeners')
     leading = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='leading')
+

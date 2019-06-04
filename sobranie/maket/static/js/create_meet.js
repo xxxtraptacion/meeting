@@ -4,19 +4,23 @@ $('#checkPrivate').change(function() {
 
 $(function () {
             $('#datepickerCrMeet').datepicker({
-            format:'d.mm'
+            format:'d.mm',
+            startDate: new Date(),
+            uiLibrary: 'bootstrap4',
+            language: 'ru',
             });
 });
 
 $(function () {
             $('#timepickerCrMeet').timepicker({
+            uiLibrary: 'bootstrap4',
             });
 });
 
 
 $(function () {
             $('#timepickerDuration').timepicker({
-
+uiLibrary: 'bootstrap4',
             });
 });
 

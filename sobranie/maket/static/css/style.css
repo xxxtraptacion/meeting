@@ -34,10 +34,13 @@ input.number-input{
     height:30px;
 }
 
-a.btn-dark{
+a.btn-dark, .vote{
 background-color:#013a5d;
 width:140px;
 }
+.vote{
+background-color:#013a5d;
+width:180px;
 
 
 
