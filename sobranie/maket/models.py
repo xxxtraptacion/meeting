@@ -15,6 +15,15 @@ class Userpr(models.Model):
         return self.username
 
 
+class Titempl(models.Model):
+    namesobr = models.CharField('Имя собрания',max_length=70,unique=True)
+
+    def __str__(self):
+        return self.namesobr
+
+class Vremidat (models.Model):
+    datetime = models.DateTimeField(auto_now_add=False) # дата и время
+
 class Moment (models.Model):
     nazv = models.CharField('nazv',max_length=100,db_index=True)
     duration = models.TimeField(auto_now_add=False)
@@ -34,29 +43,43 @@ class Template(models.Model): #Шаблон собрания
         return self.namet
 
 
-class Golos(models.Model):
-    username = models.CharField('username',max_length=100,db_index=True)
-    flag= models.BooleanField('flag',default=False)
-    timemomenst = models.OneToOneField(Moment,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.username
-
-
 class Collect(models.Model):  # Собрание
-    name = models.CharField('name', max_length=100, db_index=True)
-    data = models.DateTimeField('data', auto_now_add=True)
-    org = models.CharField('org', max_length=70, unique=True)
-    man = models.CharField('man', max_length=50 )
-    theme = models.CharField('theme', max_length=250)
-    peopleincoll = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='peopleincoll')
+    name = models.CharField('Название собрания', max_length=100, db_index=True,primary_key=True)
+    data = models.DateTimeField(auto_now_add=False)
+    tpesobr = models.CharField('Тип собрания',max_length= 20,default='Общедоступное')
+    org = models.CharField('Организатор', max_length=70)
+    theme = models.CharField('Тема собрания', max_length=250)
+    opisan = models.CharField('Описание собрания',max_length=500)
+    #flagin = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='flagin')
+    #peopleincoll = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='peopleincoll')
 
     def __str__(self):
         return self.name
 
 
-class RequiredPeople(models.Model):
-    namesobr = models.ManyToManyField(Collect)
-    listeners = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='listeners')
-    leading = models.ForeignKey(Collect,on_delete=models.CASCADE,related_name='leading')
+class Golos(models.Model):
+    namesobr = models.ForeignKey(Collect, default=False, on_delete=models.CASCADE, related_name='namesobr')
+    username = models.ForeignKey(Userpr,verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE,default=True)
+    flag= models.BooleanField('flag',default=False)
 
+
+
+
+class RequiredPeople(models.Model):
+    namesobr = models.ManyToManyField(Titempl)
+    listeners = models.ForeignKey('Collect',blank=True,on_delete=models.CASCADE,related_name='listeners')
+    leading = models.ForeignKey(Collect,default=False,on_delete=models.CASCADE,related_name='leading')#
+    #Ведущий должен взяться из СОБРАНИЯ.
+    #С людьми которые будут на собрании, надо что-то придумать, где их можно хранить
+
+   # def __str__(self):
+   # return self.namesobr
+
+
+class Peoplincollect (models.Model):
+    nazvsobr = models.ForeignKey(Collect,default=False,on_delete=models.CASCADE,related_name='nazvsobr')
+    user = models.ForeignKey(Userpr,verbose_name='user',on_delete=models.CASCADE,unique=False)
+    #НЕ ПРАВИЛЬНО уникальность.
+
+    #def __str__(self):
+    #return self.nazvsobr, self.user
