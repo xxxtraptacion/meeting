@@ -9,8 +9,5 @@ urlpatterns = [
     path('my_meetings/', my_meetings_list, name='my_meetings_list_url'),
     path('vote_meeting/', vote_meeting, name='vote_meeting_url'),
     path('accounts/', include('allauth.urls')),
-    path('accounts/signup/', register_user, name='register_url'),
-    path('login/', login_user, name='login_url'),
-    path('accounts/logout/', logout_user, name='logout_url'),
 
 ]

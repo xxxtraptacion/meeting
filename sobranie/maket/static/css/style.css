@@ -13,8 +13,17 @@ a.navbar-brand{
 nav{
     background-color:#013a5d;
 }
+
+nav .dropdown-menu{
+    background-color:#013a5d;
+}
 .card.mb-4{
 border-radius: 20px;
+}
+nav .vote{
+    background-color:transparent;
+    color: white;
+    width: 50 px;
 }
 
 table {

@@ -38,27 +38,6 @@ def vote_meeting(request):
     return render(request, 'maket/vote_meeting.html')
 
 
-def register_user(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/maket/meetings.html')
-        else:
-            form = UserCreationForm
-            args = {'form': form}
-        return render(request, 'maket/register.html', args)
-
-
-
-def login_user(request):
-    return render(request, 'maket/login.html')
-
-
-def logout_user(request):
-    return render(request, 'maket/meetings.html')
-
-
 def private_meetings_list(request):
     return render(request, 'maket/private_meetings.html')
 

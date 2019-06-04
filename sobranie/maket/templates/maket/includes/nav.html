@@ -22,7 +22,14 @@
                 {% user_display user %}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="btn " href="{% url 'logout_url' %}">Выход</a>
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <button class="btn  vote" type="submit">Выход</button>
+                </form>
+
             </div>
         </li>
         <li class="nav-item ">
