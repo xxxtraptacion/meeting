@@ -11,8 +11,9 @@
 {% endblock %}
 
 {% block content %}
-
-{% include 'maket/includes/base_card.html' %}
+{% for col in publicMeet %}
+    {% include 'maket/includes/base_card.html' %}
+{% endfor %}
 
 
 {% endblock %}

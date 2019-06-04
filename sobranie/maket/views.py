@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 def meetings_list(request):
     col_list = Collect.objects.all()
+    col_list = col_list[::-1]
     context = {'col_list': col_list}
     return render(request, 'maket/meetings.html', context)
 
@@ -23,7 +24,10 @@ def reg_in_bd_user(request):
 
 
 def public_meetings_list(request):
-    return render(request, 'maket/public_meetings.html')
+    publicMeet = Collect.objects.filter(tpesobr="Общедоступное")
+    publicMeet=publicMeet[::-1]
+    context = {'publicMeet': publicMeet}
+    return render(request, 'maket/public_meetings.html', context)
 
 
 def create_meeting(request):
