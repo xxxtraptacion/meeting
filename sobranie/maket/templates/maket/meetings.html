@@ -11,11 +11,13 @@
 Все собрания
 {% endblock %}
 {% block content %}
+
+{% if not col_list %}
+<h4 align="center"> <p class="text-danger">Собраний нет</p> </h4>
+{% else %}
 {% for col in col_list %}
     {% include 'maket/includes/base_card.html' %}
 {% endfor %}
-{% endblock %}
-{% block js %}
-
+{% endif %}
 <link rel="stylesheet" href="{% static 'css/all_meets.css' %}">
 {% endblock %}

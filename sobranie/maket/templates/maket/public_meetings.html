@@ -11,9 +11,12 @@
 {% endblock %}
 
 {% block content %}
+
+{% if not publicMeet %}
+<h4 align="center"> <p class="text-danger">Общедоступных собраний нет</p> </h4>
+{% else %}
 {% for col in publicMeet %}
     {% include 'maket/includes/base_card.html' %}
 {% endfor %}
-
-
+{% endif %}
 {% endblock %}

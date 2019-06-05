@@ -12,8 +12,12 @@
 {% endblock %}
 
 {% block content %}
-
-{% include 'maket/includes/card_my_meet.html' %}
-
+{% if not my_meets_list %}
+<h4 align="center"> <p class="text-danger">У Вас пока нет созданных собраний</p> </h4>
+{% else %}
+{% for col in my_meets_list %}
+    {% include 'maket/includes/base_card.html' %}
+{% endfor %}
+{% endif %}
 {% endblock %}
 

@@ -15,14 +15,6 @@ def meetings_list(request):
     return render(request, 'maket/meetings.html', context)
 
 
-def reg_in_bd_user(request):
-    if request.method == "POST":
-        if request.POST['inputPassword'] == request.POST['inputPassword2']:
-            user = Userpr(username=request.POST['inputLogin'], password=request.POST['inputPassword'])
-            user.save()
-            return HttpResponseRedirect('/maket/meetings/')
-
-
 def public_meetings_list(request):
     publicMeet = Collect.objects.filter(tpesobr="Общедоступное")
     publicMeet=publicMeet[::-1]
@@ -31,11 +23,15 @@ def public_meetings_list(request):
 
 
 def create_meeting(request):
+
     return render(request, 'maket/create_meeting.html')
 
 
 def my_meetings_list(request):
-    return render(request, 'maket/my_meetings.html')
+    my_meets_list = Collect.objects.filter(org=request.user.username)
+    my_meets_list = my_meets_list[::-1]
+    context = {'my_meets_list': my_meets_list}
+    return render(request, 'maket/my_meetings.html', context)
 
 
 def vote_meeting(request):
@@ -43,7 +39,10 @@ def vote_meeting(request):
 
 
 def private_meetings_list(request):
-    return render(request, 'maket/private_meetings.html')
+    user_list = UserInCollect.objects.get(user__username=request.user.username).collect.all()
+    private_meets_list = user_list.filter(tpesobr="Приватное")
+    context = {'private_meets_list': private_meets_list}
+    return render(request, 'maket/private_meetings.html', context)
 
 
 
