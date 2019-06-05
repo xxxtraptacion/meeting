@@ -34,7 +34,7 @@ def my_meetings_list(request):
     return render(request, 'maket/my_meetings.html', context)
 
 
-def vote_meeting(request):
+def vote_meeting(request, meeting_slug):
     return render(request, 'maket/vote_meeting.html')
 
 
