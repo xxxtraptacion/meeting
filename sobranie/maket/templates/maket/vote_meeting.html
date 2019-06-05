@@ -8,7 +8,7 @@
 
 {% endblock %}
 {% block name %}
-Название
+{{ collect.name }}
 {% endblock %}
 
 {% block content %}
@@ -17,15 +17,15 @@
     <form>
 
         <div class="form-group">
-            <h4> Тема: тема собрания</h4>
+            <h4> Тема: {{ collect.theme }}</h4>
         </div>
         <div class="form-group">
-            <p> Описание: описание</p>
+            <p> Описание: {{ collect.opisan }}</p>
         </div>
 
 
         <div class="form-group">
-            <span> Тип собрания: тип собрания</span>
+            <span> Тип собрания: {{ collect.tpesobr }}</span>
         </div>
 
 
@@ -61,7 +61,7 @@
 
 
         <div class="form-group">
-            <span>Организатор:</span>
+            <span>Организатор:</span> {{ col.user }}
             <br>
             <span>Дата создания:</span>
         </div>

@@ -35,7 +35,9 @@ def my_meetings_list(request):
 
 
 def vote_meeting(request, meeting_slug):
-    return render(request, 'maket/vote_meeting.html')
+    collect = Collect.objects.get(slug=meeting_slug)
+    context = {'collect': collect}
+    return render(request, 'maket/vote_meeting.html', context)
 
 
 def private_meetings_list(request):

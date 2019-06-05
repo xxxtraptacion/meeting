@@ -7,7 +7,7 @@ urlpatterns = [
     path('private_meetings/', private_meetings_list, name='private_meetings_list_url'),
     path('create_meeting/', create_meeting, name='create_meeting_url'),
     path('my_meetings/', my_meetings_list, name='my_meetings_list_url'),
-    path('vote_meeting/', vote_meeting, name='vote_meeting_url'),
+    path('vote_meeting/<meeting_slug>/', vote_meeting, name='vote_meeting_url'),
     path('accounts/', include('allauth.urls')),
 
 ]

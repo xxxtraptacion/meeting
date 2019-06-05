@@ -14,7 +14,7 @@
                     Организатор: {{ col.user }}
                 </div>
                 <div class="col text-right">
-                    <a href="{% url 'vote_meeting_url'%}" class="btn btn-dark mr-0 vote">Голосовать</a>
+                    <a href="{{ col.get_absolute_url }}" class="btn btn-dark mr-0 vote">Голосовать</a>
                 </div>
             </div>
         </div>

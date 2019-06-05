@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 import datetime
+
 
 
 class Collect(models.Model):  # Собрание
@@ -11,9 +13,10 @@ class Collect(models.Model):  # Собрание
     theme = models.CharField('Тема собрания', max_length=250)
     opisan = models.CharField('Описание собрания',max_length=500)
     duration = models.TimeField(verbose_name='Длительность')
+    slug = models.SlugField()
 
-    def __str__(self):
-        return self.name
+    def get_absolute_url(self):
+        return reverse('vote_meeting_url', kwargs={'meeting_slug': self.slug})
 
 
 class UserInCollect(models.Model):
