@@ -28,7 +28,7 @@ def create_meeting(request):
 
 
 def my_meetings_list(request):
-    my_meets_list = Collect.objects.filter(org=request.user.username)
+    my_meets_list = Collect.objects.filter(user__username=request.user.username)
     my_meets_list = my_meets_list[::-1]
     context = {'my_meets_list': my_meets_list}
     return render(request, 'maket/my_meetings.html', context)
@@ -39,8 +39,13 @@ def vote_meeting(request, meeting_slug):
 
 
 def private_meetings_list(request):
-    user_list = UserInCollect.objects.get(user__username=request.user.username).collect.all()
-    private_meets_list = user_list.filter(tpesobr="Приватное")
+    private_meets_list=dict()
+    try:
+        user_list = UserInCollect.objects.get(user__username=request.user.username).collect.all()
+    except:
+        user_list=None
+    if user_list:
+        private_meets_list = user_list.filter(tpesobr="Приватное")
     context = {'private_meets_list': private_meets_list}
     return render(request, 'maket/private_meetings.html', context)
 
