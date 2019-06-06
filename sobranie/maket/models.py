@@ -15,6 +15,9 @@ class Collect(models.Model):  # Собрание
     duration = models.TimeField(verbose_name='Длительность')
     slug = models.SlugField()
 
+    def __str__(self):
+        return self.name
+
     def get_absolute_url(self):
         return reverse('vote_meeting_url', kwargs={'meeting_slug': self.slug})
 
@@ -35,7 +38,7 @@ class TimeCollect (models.Model):
 
 
 class Golos(models.Model):
-    namesobr = models.ForeignKey(Collect, default=False, on_delete=models.CASCADE, related_name='namesobr')
-    username = models.ForeignKey(User,verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE)
+    collect = models.ForeignKey(Collect,verbose_name='Собрание',on_delete=models.CASCADE,unique=False)
+    user = models.ForeignKey(User,verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE)
     date =models.ForeignKey(DateCollect, verbose_name='Дата',on_delete=models.CASCADE)
     time = models.ForeignKey(TimeCollect, verbose_name='Время',on_delete=models.CASCADE)

@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from .forms import *
 from django.views.generic import View
 from .models import *
+from collections import defaultdict
 from django.contrib import messages
 from django.contrib.auth import login,logout
 from django.contrib.auth.forms import UserCreationForm
@@ -25,6 +26,11 @@ def public_meetings_list(request):
 def create_meeting(request):
     users = User.objects.all()
     context = {'users': users}
+    if request.method == 'POST':
+        collect = Collect()
+        collect.name = request.POST.get('collectName')
+        collect.opisan = request.POST.get('collectDescription')
+        collect.save()
     return render(request, 'maket/create_meeting.html', context)
 
 
@@ -36,10 +42,19 @@ def my_meetings_list(request):
 
 
 def vote_meeting(request, meeting_slug):
+    votes = {}
     collect = Collect.objects.get(slug=meeting_slug)
     date_list = DateCollect.objects.filter(collect__name=collect.name)
     time_list = TimeCollect.objects.filter(collect__name=collect.name)
-    context = {'collect': collect, 'date_list': date_list, 'time_list': time_list}
+    vote_list = Golos.objects.filter(collect__name=collect.name)
+    for date in date_list:
+        for time in time_list:
+            for vote in vote_list:
+                if vote.time == time.time and vote.date == date.date:
+                    votes[(date.date, time.time)] = 1
+                else:
+                    votes[(date.date,time.time)] = 0
+    context = {'collect': collect, 'date_list': date_list, 'time_list': time_list, 'votes': votes}
     return render(request, 'maket/vote_meeting.html', context)
 
 
