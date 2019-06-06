@@ -29,7 +29,10 @@ def create_meeting(request):
     if request.method == 'POST':
         collect = Collect()
         collect.name = request.POST.get('collectName')
-        collect.opisan = request.POST.get('collectDescription')
+        collect.description = request.POST.get('collectDescription')
+        collect.user = request.user
+        collect.duration = '00:01:00'
+
         collect.save()
     return render(request, 'maket/create_meeting.html', context)
 
