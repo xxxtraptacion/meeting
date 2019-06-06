@@ -30,6 +30,7 @@ def create_meeting(request):
         collect = Collect()
         collect.name = request.POST.get('collectName')
         collect.description = request.POST.get('collectDescription')
+        collect.theme = request.POST.get('collectTheme')
         collect.user = request.user
         collect.duration = '00:01:00'
 
