@@ -41,18 +41,20 @@
                     <thead>
                     <tr>
                         <th  scope="col">Дата/Время</th>
-                        <th scope="col">12:00</th>
-                        <th scope="col">13:00</th>
-                        <th scope="col">14:00</th>
+                        {% for time in time_list %}
+                            <th> {{ time.time }}({{ collect.duration|time:"H:i" }})</th>
+                        {% endfor %}
                     </tr>
                     </thead>
                     <tbody>
+                    {% for date in date_list %}
                     <tr>
-                        <th scope="row">1.11</th>
-                        <td class="cell" id="cell" ><input type="submit" value="123" style="width:100%;margin: 0; padding: 0;" ></td>
-                        <td id="12" ><input type="hidden"></input></td>
-                        <td id="13" ><input type="hidden"></input></td>
+                        <th>{{date.date|date:"d.m"}} </th>
+                        {% for time in time_list %}
+                             <td></td>
+                        {% endfor %}
                     </tr>
+                    {%endfor%}
                     </tbody>
                 </table>
             </form>
@@ -60,8 +62,11 @@
 
 
 
+
+
+
         <div class="form-group">
-            <span>Организатор:</span> {{ col.user }}
+            <span>Организатор:</span> {{ collect.user }}
             <br>
             <span>Дата создания:</span>
         </div>

@@ -23,8 +23,9 @@ def public_meetings_list(request):
 
 
 def create_meeting(request):
-
-    return render(request, 'maket/create_meeting.html')
+    users = User.objects.all()
+    context = {'users': users}
+    return render(request, 'maket/create_meeting.html', context)
 
 
 def my_meetings_list(request):
@@ -36,7 +37,9 @@ def my_meetings_list(request):
 
 def vote_meeting(request, meeting_slug):
     collect = Collect.objects.get(slug=meeting_slug)
-    context = {'collect': collect}
+    date_list = DateCollect.objects.filter(collect__name=collect.name)
+    time_list = TimeCollect.objects.filter(collect__name=collect.name)
+    context = {'collect': collect, 'date_list': date_list, 'time_list': time_list}
     return render(request, 'maket/vote_meeting.html', context)
 
 
