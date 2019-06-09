@@ -14,13 +14,13 @@
 
 <div class="container mt-3 mb-3" >
     <form class="pt-3" method="post">
-    {% csrf_token %}
+        {% csrf_token %}
         <div class="form-row ">
             <div class="form-group col-md-1">
                 <label for="collectName">Название:</label>
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="collectName" name="collectName" >
+                <input type="text" class="form-control" id="collectName" name="collectName" oninvalid="this.setCustomValidity('Заполните это поле')" required>
             </div>
         </div>
 
@@ -45,28 +45,21 @@
         </div>
 
 
-        <div class="form-row mt-5 mb-3">
-            <div class="form-group col-md-2">
-                <label >Тип собрания:</label>
+        <div class="form-row mt-3 mb-3 ">
+            <div class="form-group col-md-4">
+                <label for="selectUsers">Ограниченный список участников:</label>
             </div>
-            <div class="form-group col-md-2" id="listUsers">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="meetTypeButton" id="listU" value="option2">
-                    <label class="form-check-label" for="listU">
-                        По приглашению
-                    </label>
-                </div>
-            </div>
-            <div class="form-group col-md ">
-                <div class="list">
-                    <select  class="selectpicker" multiple data-live-search="true">
-                        {% for user in users %}
-                        <option> {{ user.username }}</option>
-                        {% endfor %}
 
-                    </select>
-                </div>
+            <div class="form-group col-md-4 " >
+                <select  class="selectpicker" id="selectUsers" multiple data-live-search="true" >
+                    <option disabled>Список пользователей:</option>
+                    {% for user in users %}
+                    <option value="{{ user.username }}"> {{ user.username }}</option>
+                    {% endfor %}
+
+                </select>
             </div>
+
         </div>
 
 
@@ -139,14 +132,14 @@
             </div>
 
         </div>
-</div>
 
 
-<div class="form-group col align-self-end text-right">
 
-    <button type="submit" class="btn btn-dark vote" value="create">Создать собрание</button>
-</div>
-</form>
+        <div class="form-group col align-self-end text-right">
+
+            <button type="submit" class="btn btn-dark vote" value="create">Создать собрание</button>
+        </div>
+    </form>
 </div>
 {% endblock %}
 

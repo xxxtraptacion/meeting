@@ -1,11 +1,8 @@
-$('#checkPrivate').change(function() {
-    $('#listUsers').toggle();
-});
+
 
 $(function () {
             $('#datepickerCrMeet').datepicker({
-            format:'d.mm',
-            startDate: new Date(),
+            format:'dd.mm',
             uiLibrary: 'bootstrap4',
             language: 'ru',
             });
@@ -14,13 +11,23 @@ $(function () {
 $(function () {
             $('#timepickerCrMeet').timepicker({
             uiLibrary: 'bootstrap4',
+            value: '08:00',
+            format: 'HH:MM',
+            modal: false,
+            header: false,
+            footer: false,
             });
 });
 
 
 $(function () {
             $('#timepickerDuration').timepicker({
-uiLibrary: 'bootstrap4',
+            uiLibrary: 'bootstrap4',
+            value: '01:00',
+            format: 'HH:MM',
+            modal: false,
+            header: false,
+            footer: false,
             });
 });
 
