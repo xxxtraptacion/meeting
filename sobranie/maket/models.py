@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
-from transliterate import translit
-import datetime
 
 
 class Collect(models.Model):  # Собрание
@@ -35,7 +33,7 @@ pre_save.connect(pre_save_collect_slug, sender=Collect)
 
 class UserInCollect(models.Model):
     user = models.ForeignKey(User, verbose_name='user', on_delete=models.CASCADE)
-    collect = models.ManyToManyField(Collect)
+    collect = models.ForeignKey(Collect, verbose_name='collect', on_delete=models.CASCADE)
 
 
 class DateCollect (models.Model):

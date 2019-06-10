@@ -13,10 +13,10 @@
 
 {% block content %}
 
-{% if not private_meets_list %}
+{% if not private_colls %}
 <h4 align="center"> <p class="text-danger">Приватных собраний нет</p> </h4>
 {% else %}
-{% for col in private_meets_list %}
+{% for col in private_colls %}
     {% include 'maket/includes/base_card.html' %}
 
 {% endfor %}

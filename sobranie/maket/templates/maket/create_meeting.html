@@ -47,11 +47,11 @@
 
         <div class="form-row mt-3 mb-3 ">
             <div class="form-group col-md-4">
-                <label for="selectUsers">Ограниченный список участников:</label>
+                <label for="selectUsers" >Ограниченный список участников:<span class="badge badge-pill badge-info" title="Выберите только тех участников, которых вы хотите видеть на собрании">?</span></label>
             </div>
 
             <div class="form-group col-md-4 " >
-                <select  class="selectpicker" id="selectUsers" multiple data-live-search="true" >
+                <select  class="selectpicker" id="selectUsers" name="selectUsers" multiple data-live-search="true" >
                     <option disabled>Список пользователей:</option>
                     {% for user in users %}
                     <option value="{{ user.username }}"> {{ user.username }}</option>
@@ -65,7 +65,7 @@
 
 
         <div class="form-group">
-            <label >Таблица голосования:</label>
+            <label >Таблица голосования:<span class="badge badge-pill badge-info" title="Сформируйте таблицу голосования">?</span></label>
         </div>
 
 
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="col-5">
-                        <input id="timepickerDuration">
+                        <input id="timepickerDuration" name="timepickerDuration">
 
                     </div>
                     <div class="col-1">
