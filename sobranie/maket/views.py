@@ -40,9 +40,9 @@ def create_meeting(request):
         if listUsers:
             for user in listUsers:
                 userincollect = UserInCollect()
-                useru = User.objects.get(username = user)
+                useru = User.objects.get(username=user)
                 userincollect.user = useru
-                userincollect.collect = Collect.objects.get(name = collect.name)
+                userincollect.collect = Collect.objects.get(name=collect.name)
                 userincollect.save()
         return redirect('/maket/public_meetings/')
     return render(request, 'maket/create_meeting.html', context)

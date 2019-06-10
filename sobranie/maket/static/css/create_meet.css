@@ -1,4 +1,7 @@
 div.list {
     dislpay:none;
 }
+span.badge {
+    cursor: help;
+}
 
