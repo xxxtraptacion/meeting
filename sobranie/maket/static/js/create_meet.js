@@ -1,8 +1,8 @@
-
+var countTime = 0;
 
 $(function () {
             $('#datepickerCrMeet').datepicker({
-            format:'dd.mm',
+            format:'yyyy-mm-dd',
             uiLibrary: 'bootstrap4',
             language: 'ru',
             });
@@ -37,9 +37,9 @@ document.querySelector('button.add-row').onclick = function () {
   for(var i = 0, l = rows.length; i < l; i++) {
     if(i==0){
         var addTD =rows[i].insertCell(-1);
-        addTD.innerHTML = $('#timepickerCrMeet').val();
-        addTD.innerHTML+=" (<span class='duration'></span>) <button type='button' class='close remove-col' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
-
+        addTD.innerHTML = "<input type='hidden' name='time[]' value = '"+$('#timepickerCrMeet').val()+"'>"+"</input>"+$('#timepickerCrMeet').val();
+        addTD.innerHTML+="<button type='button' class='close remove-col' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+        countTime++;
     }
     else{
         var addTD =rows[i].insertCell(-1);
@@ -57,7 +57,7 @@ document.querySelector('button.add-col').onclick = function () {
   for(var i = 0, l = cols.length; i < l; i++) {
     if(i==0){
         var addTD =addTR.insertCell(-1);
-        addTD.innerHTML = $('#datepickerCrMeet').val();
+        addTD.innerHTML =addTD.innerHTML = "<input type='hidden' name='date[]' value = '"+$('#datepickerCrMeet').val()+"'>"+"</input>"+$('#datepickerCrMeet').val();
         addTD.innerHTML+=" <button type='button' class='close remove-row' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
     }
     else{
@@ -68,10 +68,7 @@ document.querySelector('button.add-col').onclick = function () {
 }
 
 
-$("button.add-duration").on("click",  function(){
-    $(".duration").empty();
-    $(".duration").append($('#timepickerDuration').val());
-});
+
 
 
 $("table.table").on("click", ".remove-row", function(){
@@ -82,6 +79,7 @@ $("table.table").on("click", ".remove-row", function(){
 
 $("table.table").on("click", ".remove-col", function(){
     var td= this.parentNode;
+    countTime--;
     var rows = document.getElementById("table").rows;
     for(var i = 0, l = rows.length; i < l; i++) {
         document.getElementById("table").rows[i].deleteCell(td.cellIndex);

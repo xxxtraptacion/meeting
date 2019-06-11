@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
-from django.http import HttpResponseRedirect
+
 from .forms import *
 from django.views.generic import View
 from .models import *
@@ -44,6 +44,20 @@ def create_meeting(request):
                 userincollect.user = useru
                 userincollect.collect = Collect.objects.get(name=collect.name)
                 userincollect.save()
+        timelist = request.POST.getlist('time[]')
+        datelist = request.POST.getlist('date[]')
+        if timelist:
+            for time in timelist:
+                timecollect = TimeCollect()
+                timecollect.collect = Collect.objects.get(name=collect.name)
+                timecollect.time = time
+                timecollect.save()
+        if datelist:
+            for date in datelist:
+                datecollect = DateCollect()
+                datecollect.collect = Collect.objects.get(name=collect.name)
+                datecollect.date = date
+                datecollect.save()
         return redirect('/maket/public_meetings/')
     return render(request, 'maket/create_meeting.html', context)
 
@@ -63,7 +77,7 @@ def vote_meeting(request, meeting_slug):
     vote_list = Golos.objects.filter(collect__name=collect.name)
     for date in date_list:
         for time in time_list:
-            for vote in vote_list:
+            for vote in vote_list.filter():
                 if vote.time == time.time and vote.date == date.date:
                     votes[(date.date, time.time)] = 1
                 else:
