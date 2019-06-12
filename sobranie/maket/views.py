@@ -10,10 +10,6 @@ from django.contrib.auth import login,logout
 from django.contrib.auth.forms import UserCreationForm
 
 
-def meetings_list(request):
-    return redirect('/maket/public_meetings/')
-
-
 def public_meetings_list(request):
     publicMeet = Collect.objects.filter(tpesobr="Общедоступное")
     publicMeet=publicMeet[::-1]

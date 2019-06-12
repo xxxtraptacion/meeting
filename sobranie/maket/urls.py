@@ -2,7 +2,6 @@ from django.urls import path,include
 from .views import *
 
 urlpatterns = [
-    path('meetings/', meetings_list, name='meetings_list_url'),
     path('public_meetings/', public_meetings_list, name='public_meetings_list_url'),
     path('private_meetings/', private_meetings_list, name='private_meetings_list_url'),
     path('create_meeting/', create_meeting, name='create_meeting_url'),

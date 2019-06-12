@@ -1,23 +1,32 @@
 {% extends 'maket/base.html' %}
 
 {% block menu %}
-
+{% if user.is_authenticated %}
 {% include 'maket/includes/nav.html' %}
 
+{% else %}
+
+{% include 'maket/includes/nav_sign_log.html' %}
+
+{% endif %}
 
 {% endblock %}
 
 {% block name %}
+{% if user.is_authenticated %}
     Мои собрания
+{% endif %}
 {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
 {% if not my_meets_list %}
 <h4 align="center"> <p class="text-danger">У Вас пока нет созданных собраний</p> </h4>
 {% else %}
 {% for col in my_meets_list %}
     {% include 'maket/includes/card_my_meet.html' %}
 {% endfor %}
+{% endif %}
 {% endif %}
 {% endblock %}
 

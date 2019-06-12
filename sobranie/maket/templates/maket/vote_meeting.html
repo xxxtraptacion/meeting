@@ -1,17 +1,24 @@
 {% extends 'maket/base.html' %}
 {% load staticfiles %}
 {% block menu %}
-
+{% if user.is_authenticated %}
 {% include 'maket/includes/nav.html' %}
 
+{% else %}
+
+{% include 'maket/includes/nav_sign_log.html' %}
+
+{% endif %}
 
 {% endblock %}
 {% block name %}
+{% if user.is_authenticated %}
 {{ collect.name }}
+{% endif%}
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <div class="container mt-3">
     <form>
 
@@ -79,7 +86,7 @@
 </div>
 
 
-
+{% endif%}
 {% endblock %}
 
 {% block js %}

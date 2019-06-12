@@ -134,7 +134,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/maket/meetings'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/maket/public_meetings/'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000/maket/accounts/login'
 LOGIN_URL = 'accounts/login/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
