@@ -75,13 +75,9 @@ def vote_meeting(request, meeting_slug):
     date_list = DateCollect.objects.filter(collect__name=collect.name)
     time_list = TimeCollect.objects.filter(collect__name=collect.name)
     vote_list = Golos.objects.filter(collect__name=collect.name)
-    for date in date_list:
-        for time in time_list:
-            for vote in vote_list.filter():
-                if vote.time == time.time and vote.date == date.date:
-                    votes[(date.date, time.time)] = 1
-                else:
-                    votes[(date.date, time.time)] = 0
+    #for date in date_list:
+     #   for time in time_list:
+      #      votes[str((date.date, time.time))] = len(vote_list.filter(time__time=time.time).filter(date__date=date.date))
     context = {'collect': collect, 'date_list': date_list, 'time_list': time_list, 'votes': votes}
     return render(request, 'maket/vote_meeting.html', context)
 

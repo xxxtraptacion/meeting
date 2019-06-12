@@ -1,6 +1,5 @@
 {% extends 'maket/base.html' %}
 {% load staticfiles %}
-
 {% block menu %}
 
 {% include 'maket/includes/nav.html' %}
@@ -25,12 +24,15 @@
 
 
         <div class="form-group">
-            <span> Тип собрания: {{ collect.tpesobr }}</span>
+            <p>Тип собрания:<span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" >{{ collect.tpesobr }}</span></p>
+        </div>
+         <div class="form-group">
+            <p> Длительность собрания: {{ collect.duration|time:'H' }} час(а) {{ collect.duration|time:'i' }} минут(ы)</p>
         </div>
 
 
         <div class="form-group">
-            <span>Таблица голосования:</span>
+            <p>Таблица голосования:</p>
         </div>
 
 
@@ -42,16 +44,18 @@
                     <tr>
                         <th  scope="col">Дата/Время</th>
                         {% for time in time_list %}
-                            <th> {{ time.time }}({{ collect.duration|time:"H:i" }})</th>
+                            <th> {{ time.time }}</th>
                         {% endfor %}
                     </tr>
                     </thead>
                     <tbody>
+
                     {% for date in date_list %}
                     <tr>
                         <th>{{date.date|date:"d.m"}} </th>
                         {% for time in time_list %}
-                            <td></td>
+
+                        <td></td>
 
                         {% endfor %}
                     </tr>
@@ -67,9 +71,7 @@
 
 
         <div class="form-group">
-            <span>Организатор:</span> {{ collect.user }}
-            <br>
-            <span>Дата создания:</span>
+            Организатор: {{ collect.user }}
         </div>
 
 
