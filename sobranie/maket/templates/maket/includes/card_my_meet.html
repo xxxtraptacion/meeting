@@ -1,13 +1,5 @@
 {% extends 'maket/includes/base_card.html' %}
 
-{% block card_content %}
-<div class=" col-6">
-    Организатор:
-</div>
-<div class="col text-right  mr-0">
-    <a href="#" class="btn btn-dark align-self-end vote" >Редактировать</a>
-</div>
-<div class="col text-right">
-    <a href="{% url 'vote_meeting_url'%}" class="btn btn-dark align-self-end vote" >Голосовать</a>
-</div>
+{% block deletecol %}
+    <a href="delete/{{col.name}}" class="btn btn-danger mr-0 ">Удалить</a>
 {% endblock %}

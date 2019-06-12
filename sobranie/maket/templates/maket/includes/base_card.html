@@ -10,10 +10,15 @@
             <p class="card-text "> Дата создания: {{ col.data }}</p>
 
             <div class="row">
-                <div class=" col">
+                <div class=" col-7">
                     Организатор: {{ col.user }}
                 </div>
-                <div class="col text-right">
+                <div class=" col-2">
+                    {% block deletecol %}
+
+                    {% endblock %}
+                </div>
+                <div class="col-3 text-right">
                     <a href="{{ col.get_absolute_url }}" class="btn btn-dark mr-0 vote">Голосовать</a>
                 </div>
             </div>

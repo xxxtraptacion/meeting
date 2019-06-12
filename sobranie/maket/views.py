@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
-
+from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound
 from .forms import *
 from django.views.generic import View
 from .models import *
@@ -10,10 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 def meetings_list(request):
-    col_list = Collect.objects.all()
-    col_list = col_list[::-1]
-    context = {'col_list': col_list}
-    return render(request, 'maket/meetings.html', context)
+    return redirect('/maket/public_meetings/')
 
 
 def public_meetings_list(request):
@@ -90,4 +88,10 @@ def private_meetings_list(request):
     return render(request, 'maket/private_meetings.html', context)
 
 
-
+def delete(request, name):
+    try:
+        collect = Collect.objects.get(name=name)
+        collect.delete()
+        return redirect('/maket/my_meetings/')
+    except Collect.DoesNotExist:
+        return redirect('/maket/my_meetings/')
