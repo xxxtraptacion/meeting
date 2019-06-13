@@ -64,11 +64,21 @@ def my_meetings_list(request):
 
 
 def vote_meeting(request, meeting_slug):
-    votes = {}
+    votes = '1'
     collect = Collect.objects.get(slug=meeting_slug)
     date_list = DateCollect.objects.filter(collect__name=collect.name)
     time_list = TimeCollect.objects.filter(collect__name=collect.name)
     vote_list = Golos.objects.filter(collect__name=collect.name)
+    if request.method == 'POST':
+        datetime = request.POST.get('vote')
+        date, time = datetime.strip('#')
+        golos = Golos()
+        golos.collect = Collect.objects.get(slug=meeting_slug)
+        golos.user = Collect.objects.get(user__username=request.user.username)
+        golos.time = TimeCollect.objects.get(time=time)
+        golos.date = DateCollect.objects.get(date=date)
+        golos.save()
+        votes = 'sdfsdf'
     #for date in date_list:
      #   for time in time_list:
       #      votes[str((date.date, time.time))] = len(vote_list.filter(time__time=time.time).filter(date__date=date.date))
