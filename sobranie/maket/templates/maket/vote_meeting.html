@@ -20,71 +20,65 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="container mt-3">
-    <form>
-
-        <div class="form-group">
-            <h4> Тема: {{ collect.theme }}</h4>
-        </div>
-        <div class="form-group">
-            <p> Описание: {{ collect.description }}</p>
-        </div>
+    <div class="form-group">
+        <h4> Тема: {{ collect.theme }}</h4>
+    </div>
+    <div class="form-group">
+        <p> Описание: {{ collect.description }}</p>
+    </div>
 
 
-        <div class="form-group">
-            <p>Тип собрания: <span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" >{{ collect.tpesobr }}</span></p>
-        </div>
-         <div class="form-group">
-            <p> Длительность собрания: {{ collect.duration|time:'H' }} час(а) {{ collect.duration|time:'i' }} минут(ы)</p>
-        </div>
+    <div class="form-group">
+        <p>Тип собрания: <span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" >{{ collect.tpesobr }}</span></p>
+    </div>
+    <div class="form-group">
+        <p> Длительность собрания: {{ collect.duration|time:'H' }} час(а) {{ collect.duration|time:'i' }} минут(ы)</p>
+    </div>
 
 
-        <div class="form-group">
-            <p>Таблица голосования:</p>
-        </div>
+    <div class="form-group">
+        <p>Таблица голосования:</p>
+    </div>
 
 
-        <div class="form-group">
-            <form method="post">
-                {% csrf_token %}
-                <table class="table table-bordered vote-table" id="vote-table">
-                    <col width="50">
-                    <thead>
-                    <tr>
-                        <th  scope="col">Дата/Время</th>
-                        {% for time in time_list %}
-                            <th> {{ time.time }}</th>
-                        {% endfor %}
-                    </tr>
-                    </thead>
-                    <tbody>
+    <div class="form-group">
+        <table class="table table-bordered vote-table" id="vote-table">
+            <col width="50">
+            <thead>
+            <tr>
+                <th  scope="col">Дата/Время</th>
+                {% for time in time_list %}
+                <th> {{ time.time|time:"H:i" }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
 
-                    {% for date in date_list %}
-                    <tr>
-                        <th>{{date.date|date:"d.m"}} </th>
-                        {% for time in time_list %}
+            {% for date in date_list %}
+            <tr>
+                <th>{{date.date|date:"d.m"}} </th>
+                {% for time in time_list %}
 
-                        <td><form> {% csrf_token %}<input type="hidden" name="vote" value="{{date.date}}#{{time.time}}"><input type="submit"></form></td>
+                <td><form method="post"> {% csrf_token %}<input type="hidden" name="votedate" value='{{date.date|date:"Y-m-d"}}'><input type="hidden" name="votetime" value='{{time.time|time:"H:i"}}'><input type="submit" ></form></td>
 
-                        {% endfor %}
-                    </tr>
-                    {%endfor%}
-                    </tbody>
-                </table>
-            </form>
-            {{votes}}
-        </div>
+                {% endfor %}
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+        {{votes}}
+    </div>
 
 
 
 
 
 
-        <div class="form-group">
-            Организатор: {{ collect.user }}
-        </div>
+    <div class="form-group">
+        Организатор: {{ collect.user }}
+    </div>
 
 
-    </form>
 </div>
 
 
