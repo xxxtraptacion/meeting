@@ -4,6 +4,7 @@ from django.http import HttpResponseNotFound
 from .forms import *
 from django.views.generic import View
 from .models import *
+from django.template import Context
 from collections import defaultdict
 from django.contrib import messages
 from django.contrib.auth import login,logout
@@ -12,7 +13,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 def public_meetings_list(request):
     publicMeet = Collect.objects.filter(tpesobr="Общедоступное")
-    publicMeet=publicMeet[::-1]
+    publicMeet =publicMeet[::-1]
     context = {'publicMeet': publicMeet}
     return render(request, 'maket/public_meetings.html', context)
 
@@ -64,15 +65,14 @@ def my_meetings_list(request):
 
 
 def vote_meeting(request, meeting_slug):
+    votes=Context({})
     collect = Collect.objects.get(slug=meeting_slug)
     date_list = DateCollect.objects.filter(collect__name=collect.name)
     time_list = TimeCollect.objects.filter(collect__name=collect.name)
     vote_list = Golos.objects.filter(collect__name=collect.name)
     if request.method == 'POST':
         golos = Golos()
-
         useru = User.objects.get(username=request.user.username)
-
         time = request.POST.get('votetime')
         date = request.POST.get('votedate')
         golosindb = Golos.objects.filter(collect__name=meeting_slug).filter(user=useru).filter(time__time=time).filter(date__date=date)
@@ -85,10 +85,10 @@ def vote_meeting(request, meeting_slug):
             golos.date = DateCollect.objects.filter(collect__name=meeting_slug).get(date=date)
             golos.save()
 
-    #for date in date_list:
-     #   for time in time_list:
-      #      votes[str((date.date, time.time))] = len(vote_list.filter(time__time=time.time).filter(date__date=date.date))
-    context = {'collect': collect, 'date_list': date_list, 'time_list': time_list}
+    for date in date_list:
+        for time in time_list:
+            votes[date.date, time.time] = len(vote_list.filter(time__time=time.time).filter(date__date=date.date))
+    context = {'collect': collect, 'date_list': date_list, 'time_list': time_list, 'votes': votes}
     return render(request, 'maket/vote_meeting.html', context)
 
 
