@@ -5,6 +5,7 @@ from .forms import *
 from django.views.generic import View
 from .models import *
 from django.template import Context
+from django.utils.text import slugify
 from collections import defaultdict
 from django.contrib import messages
 from django.contrib.auth import login,logout
@@ -69,20 +70,20 @@ def vote_meeting(request, meeting_slug):
     collect = Collect.objects.get(slug=meeting_slug)
     date_list = DateCollect.objects.filter(collect__name=collect.name)
     time_list = TimeCollect.objects.filter(collect__name=collect.name)
-    vote_list = Golos.objects.filter(collect__name=collect.name)
+    vote_list = Golos.objects.filter(collect__slug=collect.slug)
     if request.method == 'POST':
         golos = Golos()
         useru = User.objects.get(username=request.user.username)
         time = request.POST.get('votetime')
         date = request.POST.get('votedate')
-        golosindb = Golos.objects.filter(collect__name=meeting_slug).filter(user=useru).filter(time__time=time).filter(date__date=date)
+        golosindb = Golos.objects.filter(collect__slug=meeting_slug).filter(user=useru).filter(time__time=time).filter(date__date=date)
         if golosindb:
             golosindb.delete()
         else:
             golos.collect = Collect.objects.get(slug=meeting_slug)
             golos.user = useru
-            golos.time = TimeCollect.objects.filter(collect__name=meeting_slug).get(time=time)
-            golos.date = DateCollect.objects.filter(collect__name=meeting_slug).get(date=date)
+            golos.time = TimeCollect.objects.filter(collect__slug=meeting_slug).get(time=time)
+            golos.date = DateCollect.objects.filter(collect__slug=meeting_slug).get(date=date)
             golos.save()
 
     for date in date_list:
