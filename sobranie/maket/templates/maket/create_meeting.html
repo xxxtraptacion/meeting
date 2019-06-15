@@ -4,145 +4,94 @@
 {% block menu %}
 {% if user.is_authenticated %}
 {% include 'maket/includes/nav.html' %}
-
 {% else %}
-
 {% include 'maket/includes/nav_sign_log.html' %}
-
 {% endif %}
+{% endblock %}
 
+{% block title %}
+Новое собрание
+{% endblock %}
+
+{% block name %}
+Новое собрание
 {% endblock %}
 
 {% block content %}
-
 {% if user.is_authenticated %}
-
-
-<div class="container mt-3 mb-3" >
-    <form class="pt-3" method="post">
-        {% csrf_token %}
-        <div class="form-row ">
-            <div class="form-group col-md-1">
-                <label for="collectName">Название:</label>
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="collectName" name="collectName" oninvalid="this.setCustomValidity('Заполните это поле')" required>
-            </div>
+<form class="pt-md-3" method="post">
+    {% csrf_token %}
+    <div class="form-row ">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="collectName" name="collectName" placeholder="Название собрания..." oninvalid="this.setCustomValidity('Заполните это поле')" required>
         </div>
-
-        <div class="form-row ">
-            <div class="form-group col-md-1">
-                <label for="collectTheme">Тема:</label>
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="collectTheme" name="collectTheme" >
-            </div>
-
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control" id="collectTheme" name="collectTheme" placeholder="Тема собрания...">
         </div>
-
-
-        <div class="form-row">
-            <div class="form-group col-md-1">
-                <label for="collectDescription">Описание:</label>
-            </div>
-            <div class="input-group col-md-6">
-                <textarea class="form-control"  id="collectDescription" cols="100" name="collectDescription"></textarea>
-            </div>
+    </div>
+    <div class="form-row">
+        <div class="input-group col-md-12">
+            <textarea class="form-control"  id="collectDescription" cols="100" name="collectDescription" placeholder="Описание собрания..."></textarea>
         </div>
-
-
-        <div class="form-row mt-3 mb-3 ">
-            <div class="form-group col-md-4">
-                <label for="selectUsers" >Ограниченный список участников:</label>
-            </div>
-
-            <div class="form-group col-md-4 " >
-                <select  class="selectpicker" id="selectUsers" name="selectUsers" multiple data-live-search="true" >
-                    <option disabled>Список пользователей:</option>
-                    {% for user in users %}
-                    <option value="{{ user.username }}"> {{ user.username }}</option>
-                    {% endfor %}
-
-                </select>
-                <span class="badge badge-pill badge-info" title="Выберите только тех участников, которых вы хотите пригласить на собрание">?</span>
-            </div>
-
+    </div>
+    <div class="form-row mt-3  ">
+        <div class="form-group col-md-4 mt-md-1">
+            <label for="selectUsers" >Выберите список участников:  <span class="badge badge-pill badge-info" title="Только для собраний по приглашению">?</span></label>
         </div>
-
-        <div class="form-row mt-3 mb-3 ">
-
-            <div class="row">
-                <div class="col-6">
-                    <label >Длительность собрания:</label>
-                </div>
-
-                <div class="col-3">
-                    <input id="timepickerDuration" name="timepickerDuration">
-                </div>
-            </div>
+        <div class="form-group col-md-3 " >
+            <select  class="selectpicker" id="selectUsers" name="selectUsers" multiple data-live-search="true" >
+                <option disabled>Список пользователей:</option>
+                {% for user in users %}
+                <option value="{{ user.username }}" > {{ user.username }}</option>
+                {% endfor %}
+            </select>
         </div>
-        <div class="form-group">
-            <label >Таблица голосования:<span class="badge badge-pill badge-info" title="Сформируйте таблицу голосования">?</span></label>
+        <div class="form-group col-md-3 mt-md-1">
+            <label >Выберите длительность:</label>
         </div>
-        <div class="form-group">
-            <table class="table table-bordered" id="table">
-                <tr>
-                    <th >Дата/Время</th>
-                </tr>
-            </table>
+        <div class="form-group col-md-2">
+            <input id="timepickerDuration" name="timepickerDuration">
         </div>
-
-        <div class="form-row">
-
-            <div class="form-group col-5">
-                <div class="row">
-                    <div class="col-5">
-                        <label >Добавить дату:</label>
-                    </div>
-                    <div class="col-4">
-                        <input id="datepickerCrMeet" >
-                    </div>
-                    <div class="col-3">
-                        <button type="button" class="btn btn-success btn-sm add-col">+</button>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="form-group col-5">
-                <div class="row">
-                    <div class="col-5">
-                        <label >Добавить время:</label>
-                    </div>
-                    <div class="col-4">
-                        <input id="timepickerCrMeet">
-
-                    </div>
-                    <div class="col-1">
-                        <button type="button" class="btn btn-success btn-sm add-row">+</button>
-
-                    </div>
-                </div>
-            </div>
-
-
+    </div>
+    <div class="form-group">
+        <label >Таблица голосования:<span class="badge badge-pill badge-info" title="Сформируйте таблицу голосования">?</span></label>
+    </div>
+    <div class="form-group">
+        <table class="table table-bordered" id="table">
+            <tr>
+                <th >Дата/Время</th>
+            </tr>
+        </table>
+    </div>
+    <div class="form-row">
+        <div class="col-md-2 mt-md-1">
+            <label >Добавить дату:</label>
         </div>
-
-
-
-
-        <div class="form-group col align-self-end text-right">
-
+        <div class="col-md-2">
+            <input id="datepickerCrMeet" >
+        </div>
+        <div class="col-md-1 mt-md-1">
+            <button type="button" class="btn btn-success btn-sm add-col">+</button>
+        </div>
+        <div class="col-md-2  mt-md-1">
+            <label >Добавить время:</label>
+        </div>
+        <div class="col-md-2">
+            <input id="timepickerCrMeet">
+        </div>
+        <div class="col-md-1 mt-md-1">
+            <button type="button" class="btn btn-success btn-sm add-row">+</button>
+        </div>
+        <div class="col-md-2">
             <button type="submit" class="btn btn-dark vote" value="create">Создать собрание</button>
         </div>
-    </form>
-</div>
+    </div>
 
+</form>
 {% endif %}
 {% endblock %}
 
 {% block js %}
-
 <link rel="stylesheet" href="{% static 'css/create_meet.css' %}">
 <script src="{% static 'js/create_meet.js'  %}"></script>
 {% endblock %}

@@ -16,11 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>
-
         {% block title %}
         СКБ.Собрание
         {% endblock %}
-
     </title>
 </head>
 <body>
@@ -30,24 +28,14 @@
         <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        {% block menu %}
-
-        {% endblock %}
+        {% block menu %} {% endblock %}
     </div>
 </nav>
-
-<div class="container mt-2">
+<div class="container mt-2 ">
     <h3 align="center">
-        {% block name %}
-
-
-        {% endblock %}
+        {% block name %} {% endblock %}
     </h3>
-    {% block content %}
-
-    {% endblock %}
-
-
+    {% block content %} {% endblock %}
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -57,7 +45,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-
 {% block js %}{% endblock %}
 </body>
 </html>

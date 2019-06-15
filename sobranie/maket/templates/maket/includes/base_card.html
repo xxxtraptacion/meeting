@@ -2,23 +2,22 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="row">
-
-                <h4 class="card-title col">{{ col.name }} </h4>
-                <h5 class="card-title col  text-right"><span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" >{{ col.tpesobr }}</span></h5>
+                <h4 class="card-title col-md-8">{{ col.name }} </h4>
+                <h5 class="card-title col-md-4 text-right"><span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" >{{ col.tpesobr }}</span></h5>
             </div>
-            <p class="card-text "> {{ col.theme }}</p>
-            <p class="card-text "> Дата создания: {{ col.data }}</p>
+            <p class="card-text font-italic"> {{ col.theme|truncatechars:60 }}</p>
+            <p class="card-text "> {{ col.description|truncatechars:127 }}</p>
 
             <div class="row">
-                <div class=" col-7">
-                    Организатор: {{ col.user }}
+                <div class=" col-md-7 pt-2">
+                   <p class="card-text text-muted"> Организатор: {{ col.user }}</p>
                 </div>
-                <div class=" col-2">
+                <div class=" col-md-2">
                     {% block deletecol %}
 
                     {% endblock %}
                 </div>
-                <div class="col-3 text-right">
+                <div class="col-md-3">
                     <a href="{{ col.get_absolute_url }}" class="btn btn-dark mr-0 vote">Голосовать</a>
                 </div>
             </div>

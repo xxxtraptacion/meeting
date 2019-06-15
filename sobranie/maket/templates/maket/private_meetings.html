@@ -3,29 +3,24 @@
 {% block menu %}
 {% if user.is_authenticated %}
 {% include 'maket/includes/nav.html' %}
-
 {% else %}
-
 {% include 'maket/includes/nav_sign_log.html' %}
-
 {% endif %}
-
 {% endblock %}
 
 {% block name %}
 {% if user.is_authenticated %}
-    Приватные собрания
+Приватные собрания
 {% endif %}
 {% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
 {% if not private_colls %}
-<h4 align="center"> <p class="text-danger">Приватных собраний нет</p> </h4>
+<h4 align="center"> <p class="text-danger">Собраний по приглашению нет</p> </h4>
 {% else %}
 {% for col in private_colls %}
-    {% include 'maket/includes/base_card.html' %}
-
+{% include 'maket/includes/base_card.html' %}
 {% endfor %}
 {% endif %}
 {% endif %}

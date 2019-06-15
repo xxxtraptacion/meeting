@@ -1,6 +1,5 @@
 div.collapse a{
     color: white;
-
 }
 
 div.container{
@@ -13,6 +12,8 @@ a.navbar-brand{
 nav{
     background-color:#013a5d;
 }
+
+
 
 nav .dropdown-menu{
     background-color:#013a5d;
@@ -38,11 +39,13 @@ a.btn-dark, .vote{
 background-color:#013a5d;
 width:140px;
 }
+.vote :hover{
+background-color:#012840;
+}
 .vote{
 background-color:#013a5d;
 width:180px;
 }
-
 
 span.badge {
     background-color:#bde5fe;

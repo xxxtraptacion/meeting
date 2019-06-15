@@ -25,7 +25,7 @@ def create_meeting(request):
         collect = Collect()
         listUsers = request.POST.getlist('selectUsers')
         if listUsers:
-            collect.tpesobr = "Приватное"
+            collect.tpesobr = "По приглашению"
         collect.name = request.POST.get('collectName')
         collect.description = request.POST.get('collectDescription')
         collect.theme = request.POST.get('collectTheme')
@@ -93,7 +93,7 @@ def vote_meeting(request, meeting_slug):
 
 
 def private_meetings_list(request):
-    private_list = Collect.objects.filter(tpesobr="Приватное")
+    private_list = Collect.objects.filter(tpesobr="По приглашению")
     private_colls = private_list.filter(userincollect__user__username__contains=request.user.username)
     private_colls = private_colls[::-1]
     context = {'private_colls': private_colls}

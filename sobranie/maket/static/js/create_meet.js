@@ -19,7 +19,6 @@ $(function () {
             });
 });
 
-
 $(function () {
             $('#timepickerDuration').timepicker({
             uiLibrary: 'bootstrap4',
@@ -48,9 +47,6 @@ document.querySelector('button.add-row').onclick = function () {
   }
 }
 
-
-
-
 document.querySelector('button.add-col').onclick = function () {
   var cols = document.getElementById("table").rows[0].cells;
   var addTR = document.getElementById('table').insertRow(-1);
@@ -67,15 +63,10 @@ document.querySelector('button.add-col').onclick = function () {
   }
 }
 
-
-
-
-
 $("table.table").on("click", ".remove-row", function(){
     var tr= this.parentNode.parentNode;
     document.getElementById("table").deleteRow(tr.rowIndex);
 });
-
 
 $("table.table").on("click", ".remove-col", function(){
     var td= this.parentNode;
