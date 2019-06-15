@@ -2,7 +2,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="row">
-                <h4 class="card-title col-md-8">{{ col.name }} </h4>
+                <h4 class="card-title col-md-8">{{ col.name|truncatechars:30 }} </h4>
                 <h5 class="card-title col-md-4 text-right"><span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="right" >{{ col.tpesobr }}</span></h5>
             </div>
             <p class="card-text font-italic"> {{ col.theme|truncatechars:60 }}</p>
