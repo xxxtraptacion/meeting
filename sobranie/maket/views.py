@@ -66,7 +66,6 @@ def my_meetings_list(request):
 
 
 def vote_meeting(request, meeting_slug):
-    votes=Context({})
     collect = Collect.objects.get(slug=meeting_slug)
     date_list = DateCollect.objects.filter(collect__name=collect.name)
     time_list = TimeCollect.objects.filter(collect__name=collect.name)
@@ -85,11 +84,26 @@ def vote_meeting(request, meeting_slug):
             golos.time = TimeCollect.objects.filter(collect__slug=meeting_slug).get(time=time)
             golos.date = DateCollect.objects.filter(collect__slug=meeting_slug).get(date=date)
             golos.save()
-
+    date_list_1 = [date.id for date in date_list]
+    time_list_1 = [time.id for time in time_list]
+    votes = []
     for date in date_list:
+        tmp = []
         for time in time_list:
-            votes[date.date, time.time] = len(vote_list.filter(time__time=time.time).filter(date__date=date.date))
-    context = {'collect': collect, 'date_list': date_list, 'time_list': time_list, 'votes': votes}
+            tmp.append({
+                "count": len(vote_list.filter(time__time=time.time).filter(date__date=date.date)),
+                "date": date,
+                "time": time,
+            })
+        votes.append(tmp)
+    context = {
+        'collect': collect,
+        'date_list': date_list,
+        'time_list': time_list,
+        'votes': votes,
+        'time_list_1': time_list_1,
+        'date_list_1': date_list_1,
+    }
     return render(request, 'maket/vote_meeting.html', context)
 
 

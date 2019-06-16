@@ -44,13 +44,18 @@
         </tr>
         </thead>
         <tbody>
-        {% for date in date_list %}
+        {% for date_v in votes %}
+
         <tr>
-            <th>{{date.date|date:"d.m"}} </th>
-            {% for time in time_list %}
-            <td>{{ votes}}<form method="post"> {% csrf_token %}<input type="hidden" name="votedate" value='{{date.date|date:"Y-m-d"}}'><input type="hidden" name="votetime" value='{{time.time|time:"H:i"}}'><input type="submit"value="&#9745"></form></form></td>
+            <th>{{date_v.0.date.date|date:"d.m"}} </th>
+            {% for item in date_v %}
+
+            <td><form method="post"> {% csrf_token %}<input type="hidden" name="votedate" value='{{item.date.date|date:"Y-m-d"}}'><input type="hidden" name="votetime" value='{{item.time.time|time:"H:i"}}'><input class="btn btn-primary" type="submit"value="{{item.count}}"></form></form></td>
+
+
             {% endfor %}
         </tr>
+
         {%endfor%}
         </tbody>
     </table>
